@@ -1,0 +1,156 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+MERGED from [:shared] /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/660a50e312bb34000cfc9bb2c6bc4e29/transformed/material-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/3100b416ac12db7c65bb40729df3b666/transformed/constraintlayout-2.0.2/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/853f27ab6b44d9e6c6e83a493a0bfeb1/transformed/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/0db938e41c0fb5711ca4e184a4687e32/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/b98df1d59f8bb28e1f0a80dfe21f707d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/f8c428231755d55d08f9557795339ef6/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/635c0a667a84d42890dfbcfa36ab0870/transformed/appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/589047226c1ed57b0e8c97bea4ea604a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/41c5bd21b9ed706b8e934e79e31f1530/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c9e132780bf2bc1a950e615dcd440089/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/542d52df838ddf2c11b24a7c503a9750/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/cf97c2d69d7d065b837c929bcf865fd0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/4c5650906f53c53e6a5124c3bf3d5912/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/9f07d38f4332a72b455193bf3b5ae2c6/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9ad5a5598a510ba8321d38e4838d141d/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/f7aa129dd6c8246ef90d28fa8e48e81a/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c0fdcf383c60f63167281ced21ed8fc5/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b88665679df380a8242839109cfd45be/transformed/activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/75e98013b99b42b4c5069f3a9328799d/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/e050fdd10013058263af6dbe8166129c/transformed/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/01e6378f9c466d633d6a6f4f1cc04e9d/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/2f26ea271fbbffbda1cdabb26d7424a8/transformed/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/8ace464f1f6caed8115008ad345d9d1f/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/aeaf33d6cf34156ad6d4ef1bf689d4ce/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/21cd027a6b3c5c59d6e6f410c15f4f7a/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/1ee05b9ad884ac303a4a409a71858319/transformed/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/70cd589887f792fe86d5efb552b0c888/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+	package
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:70-116
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-14:12
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:3:5-13:19
+MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/660a50e312bb34000cfc9bb2c6bc4e29/transformed/material-1.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/660a50e312bb34000cfc9bb2c6bc4e29/transformed/material-1.2.1/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/3100b416ac12db7c65bb40729df3b666/transformed/constraintlayout-2.0.2/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/3100b416ac12db7c65bb40729df3b666/transformed/constraintlayout-2.0.2/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/75e98013b99b42b4c5069f3a9328799d/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/75e98013b99b42b4c5069f3a9328799d/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:5:13-39
+	android:allowBackup
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:4:13-40
+	android:theme
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:6:13-44
+activity#com.example.kmmplayground.androidApp.MainActivity
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:7:9-12:20
+	android:name
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:7:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:8:13-11:29
+action#android.intent.action.MAIN
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:9:17-68
+	android:name
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:9:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:10:17-76
+	android:name
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:10:27-74
+uses-sdk
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+MERGED from [:shared] /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:shared] /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/shared/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/660a50e312bb34000cfc9bb2c6bc4e29/transformed/material-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/660a50e312bb34000cfc9bb2c6bc4e29/transformed/material-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/3100b416ac12db7c65bb40729df3b666/transformed/constraintlayout-2.0.2/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/3100b416ac12db7c65bb40729df3b666/transformed/constraintlayout-2.0.2/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/853f27ab6b44d9e6c6e83a493a0bfeb1/transformed/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/853f27ab6b44d9e6c6e83a493a0bfeb1/transformed/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/0db938e41c0fb5711ca4e184a4687e32/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/0db938e41c0fb5711ca4e184a4687e32/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/b98df1d59f8bb28e1f0a80dfe21f707d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/b98df1d59f8bb28e1f0a80dfe21f707d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/f8c428231755d55d08f9557795339ef6/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/f8c428231755d55d08f9557795339ef6/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/635c0a667a84d42890dfbcfa36ab0870/transformed/appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/mitchtabian/.gradle/caches/transforms-3/635c0a667a84d42890dfbcfa36ab0870/transformed/appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/589047226c1ed57b0e8c97bea4ea604a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/589047226c1ed57b0e8c97bea4ea604a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/41c5bd21b9ed706b8e934e79e31f1530/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/41c5bd21b9ed706b8e934e79e31f1530/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c9e132780bf2bc1a950e615dcd440089/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c9e132780bf2bc1a950e615dcd440089/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/542d52df838ddf2c11b24a7c503a9750/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/542d52df838ddf2c11b24a7c503a9750/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/cf97c2d69d7d065b837c929bcf865fd0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/cf97c2d69d7d065b837c929bcf865fd0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/4c5650906f53c53e6a5124c3bf3d5912/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/4c5650906f53c53e6a5124c3bf3d5912/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/9f07d38f4332a72b455193bf3b5ae2c6/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/9f07d38f4332a72b455193bf3b5ae2c6/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9ad5a5598a510ba8321d38e4838d141d/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9ad5a5598a510ba8321d38e4838d141d/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/f7aa129dd6c8246ef90d28fa8e48e81a/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/f7aa129dd6c8246ef90d28fa8e48e81a/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c0fdcf383c60f63167281ced21ed8fc5/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/c0fdcf383c60f63167281ced21ed8fc5/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b88665679df380a8242839109cfd45be/transformed/activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b88665679df380a8242839109cfd45be/transformed/activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] /Users/mitchtabian/.gradle/caches/transforms-3/75237e34a876f59f13cf213792e422f1/transformed/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/75e98013b99b42b4c5069f3a9328799d/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/75e98013b99b42b4c5069f3a9328799d/transformed/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/e050fdd10013058263af6dbe8166129c/transformed/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/e050fdd10013058263af6dbe8166129c/transformed/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/01e6378f9c466d633d6a6f4f1cc04e9d/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/01e6378f9c466d633d6a6f4f1cc04e9d/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/2f26ea271fbbffbda1cdabb26d7424a8/transformed/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/2f26ea271fbbffbda1cdabb26d7424a8/transformed/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/8ace464f1f6caed8115008ad345d9d1f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/8ace464f1f6caed8115008ad345d9d1f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/aeaf33d6cf34156ad6d4ef1bf689d4ce/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/aeaf33d6cf34156ad6d4ef1bf689d4ce/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/21cd027a6b3c5c59d6e6f410c15f4f7a/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/21cd027a6b3c5c59d6e6f410c15f4f7a/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/1ee05b9ad884ac303a4a409a71858319/transformed/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/1ee05b9ad884ac303a4a409a71858319/transformed/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/70cd589887f792fe86d5efb552b0c888/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/70cd589887f792fe86d5efb552b0c888/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		ADDED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
