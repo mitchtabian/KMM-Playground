@@ -28,7 +28,7 @@ struct RecipeListScreen: View {
                             Spacer(minLength: 10)
                         }
                         NavigationLink(
-                            destination: Text(recipe.title)
+                            destination: RecipeScreen(recipe: recipe)
                         ){
                             // workaround for hiding arrows
                             EmptyView()

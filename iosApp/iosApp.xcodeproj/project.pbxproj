@@ -12,6 +12,9 @@
 		224ABC202609774E00EA5E0D /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224ABC1F2609774E00EA5E0D /* RoundedCorner.swift */; };
 		224ABC28260978EE00EA5E0D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224ABC27260978EE00EA5E0D /* Color.swift */; };
 		2284E303260A69DB00525D81 /* RecipeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E302260A69DB00525D81 /* RecipeListScreen.swift */; };
+		2284E310260A762A00525D81 /* RecipeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E30F260A762A00525D81 /* RecipeScreen.swift */; };
+		2284E325260A7F5700525D81 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2284E324260A7F5700525D81 /* Avenir.ttc */; };
+		2284E32B260A83CA00525D81 /* DefaultText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E32A260A83CA00525D81 /* DefaultText.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
@@ -61,6 +64,9 @@
 		224ABC1F2609774E00EA5E0D /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		224ABC27260978EE00EA5E0D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2284E302260A69DB00525D81 /* RecipeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListScreen.swift; sourceTree = "<group>"; };
+		2284E30F260A762A00525D81 /* RecipeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScreen.swift; sourceTree = "<group>"; };
+		2284E324260A7F5700525D81 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
+		2284E32A260A83CA00525D81 /* DefaultText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultText.swift; path = /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/components/DefaultText.swift; sourceTree = "<absolute>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		224ABC162609694500EA5E0D /* components */ = {
 			isa = PBXGroup;
 			children = (
+				2284E32A260A83CA00525D81 /* DefaultText.swift */,
 				224ABC172609696700EA5E0D /* RecipeCard.swift */,
 			);
 			path = components;
@@ -159,6 +166,7 @@
 		2284E301260A69BA00525D81 /* recipe */ = {
 			isa = PBXGroup;
 			children = (
+				2284E30F260A762A00525D81 /* RecipeScreen.swift */,
 			);
 			path = recipe;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				2284E324260A7F5700525D81 /* Avenir.ttc */,
 				224ABC1D2609773700EA5E0D /* modifiers */,
 				224ABC162609694500EA5E0D /* components */,
 				224ABC0C260966AB00EA5E0D /* presentation */,
@@ -340,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2284E325260A7F5700525D81 /* Avenir.ttc in Resources */,
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
 				7555FF88242A565B00829871 /* Preview Assets.xcassets in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
@@ -395,6 +405,8 @@
 				2284E303260A69DB00525D81 /* RecipeListScreen.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				224ABC0F260966CB00EA5E0D /* ImageLoader.swift in Sources */,
+				2284E310260A762A00525D81 /* RecipeScreen.swift in Sources */,
+				2284E32B260A83CA00525D81 /* DefaultText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

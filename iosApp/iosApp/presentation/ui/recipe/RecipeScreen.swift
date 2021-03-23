@@ -1,15 +1,15 @@
 //
-//  RecipeCard.swift
+//  RecipeScreen.swift
 //  iosApp
 //
-//  Created by Mitch Tabian on 2021-03-22.
+//  Created by Mitch Tabian on 2021-03-23.
 //  Copyright © 2021 orgName. All rights reserved.
 //
 
 import SwiftUI
 import shared
 
-struct RecipeCard: View {
+struct RecipeScreen: View {
     
     let recipe: Recipe
     
@@ -22,41 +22,43 @@ struct RecipeCard: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading){
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFill()
-                .frame(maxHeight: 250, alignment: .center)
-                .clipped()
-                .onReceive(imageLoader.$data){ data in
-                    self.image = UIImage(data: data) ?? UIImage()
+        ScrollView{
+            VStack(alignment: .leading){
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxHeight: 250, alignment: .center)
+                    .clipped()
+                    .onReceive(imageLoader.$data){ data in
+                        self.image = UIImage(data: data) ?? UIImage()
+                    }
+                
+                VStack(alignment: .leading){
+                    
+                    HStack(alignment: .lastTextBaseline){
+                        DefaultText("Updated \(recipe.dateUpdated) by \(recipe.publisher)")
+                            .foregroundColor(Color.init(hex: 0x5f5f5f))
+
+                        Spacer()
+                        
+                        DefaultText(String(recipe.rating))
+                            .frame(alignment: .trailing)
+                    }
+                    
+                    ForEach((recipe.ingredients as Array), id: \.self){ _ in
+                        DefaultText("neat")
+                            .padding(.top, 4)
+                    }
                 }
-                .cornerRadius(8, corners: [.topLeft, .topRight])
-            
-            HStack(alignment: .lastTextBaseline){
-                DefaultText(recipe.title, size: 19)
-                    .font(.body)
-                    .frame(alignment: .center)
-                
-                Spacer()
-                
-                DefaultText(String(recipe.rating))
-                    .frame(alignment: .trailing)
+                .background(Color.white)
+                .padding(12)
             }
-            .padding(.top, 8)
-            .padding(.leading, 8)
-            .padding(.trailing, 8)
-            .padding(.bottom, 12)
         }
-        .background(Color.white)
-        .cornerRadius(8, corners: [.bottomLeft, .bottomRight])
-        .shadow(radius: 5)
-        
-        
+        .navigationBarTitle(recipe.title)
     }
 }
 
-struct RecipeCard_Previews: PreviewProvider {
+struct RecipeScreen_Previews: PreviewProvider {
     static let recipe = Recipe(
         id: 1,
         title: "Slow Cooker Beef and Barley Soup",
@@ -89,6 +91,6 @@ struct RecipeCard_Previews: PreviewProvider {
         dateUpdated: DateUtil().now()
     )
     static var previews: some View {
-        RecipeCard(recipe: recipe)
+        RecipeScreen(recipe: recipe)
     }
 }

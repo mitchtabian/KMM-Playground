@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/components/DefaultTextView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Avenir.ttc">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>
