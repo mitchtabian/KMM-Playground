@@ -19,10 +19,13 @@ fun greet(): String {
 @ExperimentalComposeUiApi
 @ExperimentalMaterialApi
 class MainActivity : AppCompatActivity() {
+
+    private val recipeData = RecipeData()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val recipes = RecipeData.getSearchData()
-        setContent{
+        val recipes = recipeData.getSearchData()
+        setContent {
             AppTheme(
                 darkTheme = false,
             ){

@@ -16,3 +16,4 @@ data class Recipe (
     val dateAdded: LocalDate,
     val dateUpdated: LocalDate,
 )
+

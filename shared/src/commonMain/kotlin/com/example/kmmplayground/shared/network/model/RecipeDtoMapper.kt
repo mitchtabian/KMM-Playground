@@ -1,13 +1,13 @@
 package com.example.kmmplayground.shared.network.model
 
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.domain.util.DateUtil
 import com.example.kmmplayground.shared.domain.util.DomainMapper
 import kotlinx.datetime.*
 
 class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
 
     override fun mapToDomainModel(model: RecipeDto): Recipe {
-        val currentMoment: Instant = Clock.System.now()
         return Recipe(
             id = model.pk,
             title = model.title,
@@ -16,8 +16,8 @@ class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
             publisher = model.publisher,
             sourceUrl = model.sourceUrl,
             ingredients = model.ingredients,
-            dateAdded = currentMoment.toLocalDateTime(TimeZone.UTC).date, // TODO("fix this later")
-            dateUpdated = currentMoment.toLocalDateTime(TimeZone.UTC).date, // TODO("fix this later")
+            dateAdded = DateUtil().now(), // TODO("fix this later")
+            dateUpdated = DateUtil().now(), // TODO("fix this later")
         )
     }
 
