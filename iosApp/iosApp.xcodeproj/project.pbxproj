@@ -15,6 +15,7 @@
 		2284E310260A762A00525D81 /* RecipeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E30F260A762A00525D81 /* RecipeScreen.swift */; };
 		2284E325260A7F5700525D81 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2284E324260A7F5700525D81 /* Avenir.ttc */; };
 		2284E32B260A83CA00525D81 /* DefaultText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E32A260A83CA00525D81 /* DefaultText.swift */; };
+		2284E33F260A9AD200525D81 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E33E260A9AD200525D81 /* AsyncImageView.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
@@ -67,6 +68,7 @@
 		2284E30F260A762A00525D81 /* RecipeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScreen.swift; sourceTree = "<group>"; };
 		2284E324260A7F5700525D81 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		2284E32A260A83CA00525D81 /* DefaultText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultText.swift; path = /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/components/DefaultText.swift; sourceTree = "<absolute>"; };
+		2284E33E260A9AD200525D81 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageView.swift; path = /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/presentation/util/AsyncImageView.swift; sourceTree = "<absolute>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		224ABC0D260966BC00EA5E0D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				2284E33E260A9AD200525D81 /* AsyncImageView.swift */,
 				224ABC0E260966CB00EA5E0D /* ImageLoader.swift */,
 			);
 			path = util;
@@ -401,6 +404,7 @@
 				224ABC182609696700EA5E0D /* RecipeCard.swift in Sources */,
 				224ABC28260978EE00EA5E0D /* Color.swift in Sources */,
 				224ABC202609774E00EA5E0D /* RoundedCorner.swift in Sources */,
+				2284E33F260A9AD200525D81 /* AsyncImageView.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				2284E303260A69DB00525D81 /* RecipeListScreen.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

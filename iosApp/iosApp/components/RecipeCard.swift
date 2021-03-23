@@ -13,25 +13,31 @@ struct RecipeCard: View {
     
     let recipe: Recipe
     
-    @ObservedObject var imageLoader: ImageLoader
-    @State var image: UIImage = UIImage()
-    
+//    @ObservedObject var imageLoader: ImageLoader
+//    @State var image: UIImage = UIImage()
+
     init(recipe: Recipe) {
         self.recipe = recipe
-        imageLoader = ImageLoader(urlString: self.recipe.featuredImage)
+//        imageLoader = ImageLoader(urlString: self.recipe.featuredImage)
     }
     
     var body: some View {
         VStack(alignment: .leading){
-            Image(uiImage: image)
-                .resizable()
+//            Image(uiImage: image)
+//                .resizable()
+//                .scaledToFill()
+//                .frame(maxHeight: 250, alignment: .center)
+//                .clipped()
+//                .onReceive(imageLoader.$data){ data in
+//                    self.image = UIImage(data: data) ?? UIImage()
+//                }
+//                .cornerRadius(8, corners: [.topLeft, .topRight])
+            
+            AsyncImageView(urlString: recipe.featuredImage)
                 .scaledToFill()
-                .frame(maxHeight: 250, alignment: .center)
+                .frame(maxHeight: 250)
                 .clipped()
-                .onReceive(imageLoader.$data){ data in
-                    self.image = UIImage(data: data) ?? UIImage()
-                }
-                .cornerRadius(8, corners: [.topLeft, .topRight])
+                
             
             HStack(alignment: .lastTextBaseline){
                 DefaultText(recipe.title, size: 19)
@@ -49,9 +55,8 @@ struct RecipeCard: View {
             .padding(.bottom, 12)
         }
         .background(Color.white)
-        .cornerRadius(8, corners: [.bottomLeft, .bottomRight])
+        .cornerRadius(8, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
         .shadow(radius: 5)
-        
         
     }
 }

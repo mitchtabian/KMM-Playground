@@ -9,7 +9,7 @@
 import SwiftUI
 import shared
 
-∆
+
 struct RecipeScreen: View {
     
     let recipe: Recipe
@@ -25,14 +25,14 @@ struct RecipeScreen: View {
     var body: some View {
         ScrollView{
             VStack(alignment: .leading){
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxHeight: 250, alignment: .center)
-                    .clipped()
-                    .onReceive(imageLoader.$data){ data in
-                        self.image = UIImage(data: data) ?? UIImage()
-                    }
+//                Image(uiImage: image)
+//                    .resizable()
+//                    .scaledToFill()
+//                    .frame(maxHeight: 250, alignment: .center)
+//                    .clipped()
+//                    .onReceive(imageLoader.$data){ data in
+//                        self.image = UIImage(data: data) ?? UIImage()
+//                    }
                 
                 VStack(alignment: .leading){
                     

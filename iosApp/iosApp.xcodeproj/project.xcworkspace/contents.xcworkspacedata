@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/presentation/util/URLImageView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/presentation/util/RemoteImage.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/presentation/util/URLImage.swift">
+   </FileRef>
+   <FileRef
       location = "group:/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/iosApp/iosApp/components/DefaultTextView.swift">
    </FileRef>
    <FileRef

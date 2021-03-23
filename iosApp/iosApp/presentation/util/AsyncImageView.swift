@@ -1,0 +1,30 @@
+//
+//  URLImageView.swift
+//  
+//
+//  Created by Mitch Tabian on 2021-03-23.
+//
+
+import SwiftUI
+
+struct AsyncImageView: View {
+    
+    @ObservedObject var imageLoader: ImageLoader
+    
+    init(urlString: String?) {
+        imageLoader = ImageLoader(urlString: urlString)
+    }
+    
+    var body: some View {
+            Image(uiImage: imageLoader.image ?? AsyncImageView.placeHolder!)
+                .resizable()
+    }
+    
+    static var placeHolder = UIImage(named: "empty_plate")
+}
+
+struct URLImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        AsyncImageView(urlString: nil)
+    }
+}
