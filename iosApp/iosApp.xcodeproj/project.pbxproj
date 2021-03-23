@@ -11,6 +11,7 @@
 		224ABC182609696700EA5E0D /* RecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224ABC172609696700EA5E0D /* RecipeCard.swift */; };
 		224ABC202609774E00EA5E0D /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224ABC1F2609774E00EA5E0D /* RoundedCorner.swift */; };
 		224ABC28260978EE00EA5E0D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224ABC27260978EE00EA5E0D /* Color.swift */; };
+		2284E303260A69DB00525D81 /* RecipeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284E302260A69DB00525D81 /* RecipeListScreen.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
@@ -59,6 +60,7 @@
 		224ABC172609696700EA5E0D /* RecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCard.swift; sourceTree = "<group>"; };
 		224ABC1F2609774E00EA5E0D /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		224ABC27260978EE00EA5E0D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2284E302260A69DB00525D81 /* RecipeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +107,8 @@
 		224ABC0C260966AB00EA5E0D /* presentation */ = {
 			isa = PBXGroup;
 			children = (
-				224ABC1D2609773700EA5E0D /* modifiers */,
-				224ABC162609694500EA5E0D /* components */,
+				2284E2FF260A69AF00525D81 /* ui */,
+				7555FF82242A565900829871 /* ContentView.swift */,
 				224ABC0D260966BC00EA5E0D /* util */,
 			);
 			path = presentation;
@@ -137,6 +139,30 @@
 			path = modifiers;
 			sourceTree = "<group>";
 		};
+		2284E2FF260A69AF00525D81 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				2284E301260A69BA00525D81 /* recipe */,
+				2284E300260A69B300525D81 /* recipe_list */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		2284E300260A69B300525D81 /* recipe_list */ = {
+			isa = PBXGroup;
+			children = (
+				2284E302260A69DB00525D81 /* RecipeListScreen.swift */,
+			);
+			path = recipe_list;
+			sourceTree = "<group>";
+		};
+		2284E301260A69BA00525D81 /* recipe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = recipe;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -161,10 +187,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				224ABC1D2609773700EA5E0D /* modifiers */,
+				224ABC162609694500EA5E0D /* components */,
 				224ABC0C260966AB00EA5E0D /* presentation */,
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
 				7555FF80242A565900829871 /* SceneDelegate.swift */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF84242A565B00829871 /* Assets.xcassets */,
 				7555FF89242A565B00829871 /* LaunchScreen.storyboard */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -365,6 +392,7 @@
 				224ABC28260978EE00EA5E0D /* Color.swift in Sources */,
 				224ABC202609774E00EA5E0D /* RoundedCorner.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
+				2284E303260A69DB00525D81 /* RecipeListScreen.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				224ABC0F260966CB00EA5E0D /* ImageLoader.swift in Sources */,
 			);
