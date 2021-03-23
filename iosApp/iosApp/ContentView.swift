@@ -10,12 +10,13 @@ struct ContentView: View {
         recipes = recipeData.getSearchData()
     }
     var body: some View {
-        List{
+        List {
             ForEach(recipes, id: \.self.id){ recipe in
                 VStack{
                     RecipeCard(recipe: recipe)
                     Spacer(minLength: 10)
                 }
+                .background(Color.init(hex: 0xf2f2f2))
             }
             .listRowInsets(EdgeInsets())
         }

@@ -30,9 +30,9 @@
 20        android:testOnly="true"
 21        android:theme="@style/AppTheme" >
 21-->/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:9:13-44
-22        <activity android:name="com.example.kmmplayground.androidApp.MainActivity" >
+22        <activity android:name="com.example.kmmplayground.androidApp.presentation.MainActivity" >
 22-->/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:10:9-15:20
-22-->/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:10:19-47
+22-->/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:10:19-60
 23            <intent-filter>
 23-->/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:11:13-14:29
 24                <action android:name="android.intent.action.MAIN" />

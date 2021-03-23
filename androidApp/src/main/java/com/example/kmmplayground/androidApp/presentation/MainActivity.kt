@@ -11,9 +11,6 @@ import com.example.kmmplayground.androidApp.presentation.theme.AppTheme
 import com.example.kmmplayground.shared.domain.data.RecipeData
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-fun greet(): String {
-    return Greeting().greeting()
-}
 
 @ExperimentalCoroutinesApi
 @ExperimentalComposeUiApi

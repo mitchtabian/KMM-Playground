@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.kmmplayground.androidApp.MainActivity" >
+        <activity android:name="com.example.kmmplayground.androidApp.presentation.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

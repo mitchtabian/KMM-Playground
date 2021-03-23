@@ -22,15 +22,38 @@ struct RecipeCard: View {
     }
     
     var body: some View {
-        Image(uiImage: image)
-            .resizable()
-            .scaledToFill()
-            .frame(maxHeight: 250, alignment: .center)
-            .clipped()
-            .onReceive(imageLoader.$data){ data in
-                self.image = UIImage(data: data) ?? UIImage()
+        VStack(alignment: .leading){
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+                .frame(maxHeight: 250, alignment: .center)
+                .clipped()
+                .onReceive(imageLoader.$data){ data in
+                    self.image = UIImage(data: data) ?? UIImage()
+                }
+                .cornerRadius(8, corners: [.topLeft, .topRight])
+            
+            HStack(alignment: .lastTextBaseline){
+                Text(recipe.title)
+                    .font(.body)
+                    .frame(alignment: .center)
+                
+                Spacer()
+                
+                Text(String(recipe.rating))
+                    .font(.footnote)
+                    .frame(alignment: .trailing)
             }
-            .cornerRadius(15, corners: [.topLeft, .topRight])
+            .padding(.top, 8)
+            .padding(.leading, 8)
+            .padding(.trailing, 8)
+            .padding(.bottom, 12)
+        }
+        .background(Color.white)
+        .cornerRadius(8, corners: [.bottomLeft, .bottomRight])
+        .shadow(radius: 5)
+        
+        
     }
 }
 
