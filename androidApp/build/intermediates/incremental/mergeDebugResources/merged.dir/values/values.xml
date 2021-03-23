@@ -373,6 +373,10 @@
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="mtrl_btn_textappearance_all_caps">true</bool>
+    <color name="PURPLE_500">#673AB7</color>
+    <color name="PURPLE_600">#5E35B1</color>
+    <color name="PURPLE_700">#512DA8</color>
+    <color name="PURPLE_800">#4527A0</color>
     <color name="abc_decor_view_status_guard">#ff000000</color>
     <color name="abc_decor_view_status_guard_light">#ffffffff</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
@@ -386,6 +390,18 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <color name="black">#FF000000</color>
+    <color name="black_1">#444444</color>
+    <color name="black_2">#333333</color>
+    <color name="black_3">#222222</color>
+    <color name="black_4">#111111</color>
+    <color name="black_5">#000000</color>
+    <color name="blue_300">#FF64B5F6</color>
+    <color name="blue_400">#FF42A5F5</color>
+    <color name="blue_500">#FF2196F3</color>
+    <color name="blue_600">#FF1E88E5</color>
+    <color name="blue_700">#FF1976D2</color>
+    <color name="blue_800">#FF1565C0</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -398,9 +414,6 @@
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_dark_default_color_background">#121212</color>
     <color name="design_dark_default_color_error">#CF6679</color>
@@ -444,6 +457,17 @@
     <color name="error_color_material_light">#ff5722</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+    <color name="grey_1">#FFF2F2F2</color>
+    <color name="grey_2">#FFE2E2E2</color>
+    <color name="grey_3">#FFD2D2D2</color>
+    <color name="grey_4">#FFC2C2C2</color>
+    <color name="grey_5">#FFB2B2B2</color>
+    <color name="grey_6">#FFA2A2A2</color>
+    <color name="grey_dark_1">#FF999999</color>
+    <color name="grey_dark_2">#FF888888</color>
+    <color name="grey_dark_3">#FF777777</color>
+    <color name="grey_dark_4">#FF666666</color>
+    <color name="grey_dark_5">#FF555555</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="material_blue_grey_800">#ff37474f</color>
@@ -468,6 +492,12 @@
     <color name="mtrl_textinput_hovered_box_stroke_color">#DE000000</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="orange_300">#FFFFB74D</color>
+    <color name="orange_400">#FFFFA726</color>
+    <color name="orange_500">#FFFF9800</color>
+    <color name="orange_600">#FFFB8C00</color>
+    <color name="orange_700">#FFF57C00</color>
+    <color name="orange_800">#FFEF6C00</color>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -476,6 +506,11 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="red_dark">#B00020</color>
+    <color name="red_light">#EF5350</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
@@ -486,8 +521,12 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <color name="teal_1">#2196F3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -1061,10 +1100,8 @@
     <item name="android:windowExitAnimation">@anim/mtrl_bottom_sheet_slide_out</item>
   </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor" ns2:targetApi="l">@color/blue_800</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
