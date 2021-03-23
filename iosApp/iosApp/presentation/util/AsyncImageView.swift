@@ -1,9 +1,5 @@
-//
-//  URLImageView.swift
-//  
-//
-//  Created by Mitch Tabian on 2021-03-23.
-//
+// Source:
+// https://www.youtube.com/watch?v=volfJt7mupo
 
 import SwiftUI
 
