@@ -1,7 +1,7 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
 }
@@ -18,12 +18,32 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
     implementation("androidx.compose.foundation:foundation:$composeVersion")
 
+    val constraintLayoutCompose = "1.0.0-alpha03"
+    implementation("androidx.constraintlayout:constraintlayout-compose:$constraintLayoutCompose")
+
     val composeActivities = "1.3.0-alpha03"
     implementation("androidx.activity:activity-compose:$composeActivities")
+
+    val navigationCompose = "1.0.0-alpha08"
+    implementation("androidx.navigation:navigation-compose:$navigationCompose")
+
+    // Needed for viewmodel to do constructor injection
+    val hiltNavigation = "1.0.0-alpha03"
+    implementation("androidx.hilt:hilt-navigation:$hiltNavigation")
+
+    val hilt = "2.31.2-alpha"
+    kapt("com.google.dagger:hilt-compiler:$hilt")
+    implementation("com.google.dagger:hilt-android:$hilt")
+
+//    val hiltLifecycleViewModel = "1.0.0-alpha03"
+//    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleViewModel")
 
     val glide = "4.11.0"
     implementation("com.github.bumptech.glide:glide:$glide")
     kapt("com.github.bumptech.glide:compiler:$glide")
+
+    val kotlinDatetime = "0.1.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinDatetime")
 }
 
 android {

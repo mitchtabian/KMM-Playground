@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.kmmplayground.androidApp.components.CircularIndeterminateProgressBar
 
 private val LightThemeColors = lightColors(
     primary = Blue600,
@@ -43,6 +44,8 @@ private val DarkThemeColors = darkColors(
 @Composable
 fun AppTheme(
     darkTheme: Boolean,
+    displayProgressBar: Boolean,
+    scaffoldState: ScaffoldState,
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
@@ -58,6 +61,7 @@ fun AppTheme(
             Column{
                 content()
             }
+            CircularIndeterminateProgressBar(isDisplayed = displayProgressBar, 0.3f)
         }
     }
 }

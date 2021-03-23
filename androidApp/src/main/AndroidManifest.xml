@@ -4,9 +4,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-            android:allowBackup="false"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:name=".presentation.BaseApplication"
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -1,0 +1,195 @@
+package com.example.kmmplayground.androidApp.presentation.ui.recipe_list
+
+import android.util.Log
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.kmmplayground.shared.domain.data.RecipeData
+import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory
+import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
+import com.example.kmmplayground.shared.presentation.ui.recipe_list.getFoodCategory
+import com.example.kmmplayground.shared.util.TAG
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
+
+const val PAGE_SIZE = 30
+
+const val STATE_KEY_PAGE = "recipe.state.page.key"
+const val STATE_KEY_QUERY = "recipe.state.query.key"
+const val STATE_KEY_LIST_POSITION = "recipe.state.query.list_position"
+const val STATE_KEY_SELECTED_CATEGORY = "recipe.state.query.selected_category"
+
+@HiltViewModel
+class RecipeListViewModel
+@Inject
+constructor(
+    private val savedStateHandle: SavedStateHandle,
+) : ViewModel() {
+
+
+    val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
+
+    val query = mutableStateOf("")
+
+    val selectedCategory: MutableState<FoodCategory?> = mutableStateOf(null)
+
+    val loading = mutableStateOf(false)
+
+    // Pagination starts at '1' (-1 = exhausted)
+    val page = mutableStateOf(1)
+
+    var recipeListScrollPosition = 0
+
+    init {
+        savedStateHandle.get<Int>(STATE_KEY_PAGE)?.let { p ->
+            setPage(p)
+        }
+        savedStateHandle.get<String>(STATE_KEY_QUERY)?.let { q ->
+            setQuery(q)
+        }
+        savedStateHandle.get<Int>(STATE_KEY_LIST_POSITION)?.let { p ->
+            setListScrollPosition(p)
+        }
+        savedStateHandle.get<FoodCategory>(STATE_KEY_SELECTED_CATEGORY)?.let { c ->
+            setSelectedCategory(c)
+        }
+
+        if(recipeListScrollPosition != 0){
+            onTriggerEvent(RecipeListEvent.RestoreStateEvent)
+        }
+        else{
+            onTriggerEvent(RecipeListEvent.NewSearchEvent)
+        }
+
+    }
+
+    fun onTriggerEvent(event: RecipeListEvent){
+        viewModelScope.launch {
+            try {
+                when(event){
+                    is RecipeListEvent.NewSearchEvent -> {
+                        newSearch()
+                    }
+                    is RecipeListEvent.NextPageEvent -> {
+                        nextPage()
+                    }
+                    is RecipeListEvent.RestoreStateEvent -> {
+                        restoreState()
+                    }
+                }
+            }catch (e: Exception){
+                Log.e(TAG, "launchJob: Exception: ${e}, ${e.cause}")
+                e.printStackTrace()
+            }
+            finally {
+                Log.d(TAG, "launchJob: finally called.")
+            }
+        }
+    }
+
+    private fun restoreState() {
+        // TODO("execute use case")
+    }
+
+    private fun newSearch() {
+        Log.d(TAG, "newSearch: query: ${query.value}, page: ${page.value}")
+        // New search. Reset the state
+        resetSearchState()
+
+        // TODO("execute use case")
+        viewModelScope.launch {
+            loading.value = true
+            delay(1000)
+            val recipeData = RecipeData()
+            recipes.value = recipeData.getSearchData()
+            loading.value = false
+        }
+    }
+
+    private fun nextPage() {
+        if ((recipeListScrollPosition + 1) >= (page.value * PAGE_SIZE)) {
+            incrementPage()
+            Log.d(TAG, "nextPage: triggered: ${page.value}")
+
+            if (page.value > 1) {
+                // TODO("execute use case")
+            }
+        }
+    }
+
+    /**
+     * Append new recipes to the current list of recipes
+     */
+    private fun appendRecipes(recipes: List<Recipe>){
+        val current = ArrayList(this.recipes.value)
+        current.addAll(recipes)
+        this.recipes.value = current
+    }
+
+    private fun incrementPage(){
+        setPage(page.value + 1)
+    }
+
+    fun onChangeRecipeScrollPosition(position: Int){
+        setListScrollPosition(position = position)
+    }
+
+    /**
+     * Called when a new search is executed.
+     */
+    private fun resetSearchState() {
+        recipes.value = listOf()
+        page.value = 1
+        onChangeRecipeScrollPosition(0)
+        if (selectedCategory.value?.value != query.value) clearSelectedCategory()
+    }
+
+    private fun clearSelectedCategory() {
+        setSelectedCategory(null)
+        selectedCategory.value = null
+    }
+
+    fun onQueryChanged(query: String) {
+        setQuery(query)
+    }
+
+    fun onSelectedCategoryChanged(category: String) {
+        val newCategory = getFoodCategory(category)
+        setSelectedCategory(newCategory)
+        onQueryChanged(category)
+    }
+
+    private fun setListScrollPosition(position: Int){
+        recipeListScrollPosition = position
+        savedStateHandle.set(STATE_KEY_LIST_POSITION, position)
+    }
+
+    private fun setPage(page: Int){
+        this.page.value = page
+        savedStateHandle.set(STATE_KEY_PAGE, page)
+    }
+
+    private fun setSelectedCategory(category: FoodCategory?){
+        selectedCategory.value = category
+        savedStateHandle.set(STATE_KEY_SELECTED_CATEGORY, category)
+    }
+
+    private fun setQuery(query: String){
+        this.query.value = query
+        savedStateHandle.set(STATE_KEY_QUERY, query)
+    }
+}
+
+
+
+
+
+
