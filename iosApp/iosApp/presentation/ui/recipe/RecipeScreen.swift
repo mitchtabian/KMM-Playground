@@ -9,6 +9,7 @@
 import SwiftUI
 import shared
 
+∆
 struct RecipeScreen: View {
     
     let recipe: Recipe
@@ -45,8 +46,8 @@ struct RecipeScreen: View {
                             .frame(alignment: .trailing)
                     }
                     
-                    ForEach((recipe.ingredients as Array), id: \.self){ _ in
-                        DefaultText("neat")
+                    ForEach(recipe.ingredients as Array<String>, id: \.self){ ingredient in
+                        DefaultText(ingredient)
                             .padding(.top, 4)
                     }
                 }
