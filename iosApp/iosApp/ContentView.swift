@@ -3,13 +3,21 @@ import shared
 
 struct ContentView: View {
 
-    let recipes = RecipeData.getSearchData()
+    private var recipes = [Recipe]()
     
+    init() {
+        let recipeData = RecipeData()
+        recipes = recipeData.getSearchData()
+    }
     var body: some View {
         List{
             ForEach(recipes, id: \.self.id){ recipe in
-                RecipeCard(recipe: recipe)
+                VStack{
+                    RecipeCard(recipe: recipe)
+                    Spacer(minLength: 10)
+                }
             }
+            .listRowInsets(EdgeInsets())
         }
     }
 }
