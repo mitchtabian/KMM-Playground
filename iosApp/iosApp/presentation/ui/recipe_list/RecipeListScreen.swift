@@ -20,7 +20,7 @@ struct RecipeListScreen: View {
     
     var body: some View {
         NavigationView{
-            List {
+            List{
                 ForEach(recipes, id: \.self.id){ recipe in
                     ZStack{
                         VStack{
@@ -40,7 +40,6 @@ struct RecipeListScreen: View {
             }
             .navigationBarHidden(true)
         }
-        
     }
 }
 

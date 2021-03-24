@@ -24,7 +24,6 @@ struct RecipeCard: View {
                 .frame(maxHeight: 250)
                 .clipped()
                 
-            
             HStack(alignment: .lastTextBaseline){
                 DefaultText(recipe.title, size: 19)
                     .font(.body)
@@ -41,7 +40,7 @@ struct RecipeCard: View {
             .padding(.bottom, 12)
         }
         .background(Color.white)
-        .cornerRadius(8, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
+        .cornerRadius(8)
         .shadow(radius: 5)
         
     }
