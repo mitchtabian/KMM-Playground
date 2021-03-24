@@ -37,6 +37,7 @@ MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /Users/mitchtabian/.gradl
 MERGED from [com.google.android.material:material:1.2.1] /Users/mitchtabian/.gradle/caches/transforms-3/257a4c46b2eaf4e944d69b3986b2466b/transformed/material-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/6174167f7133356e8e740f3ab50ae190/transformed/constraintlayout-2.0.2/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.3.0-beta01] /Users/mitchtabian/.gradle/caches/transforms-3/abefbe1703fb508db0b11d1deee6ba6b/transformed/appcompat-1.3.0-beta01/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.dagger:hilt-android:2.31.2-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/12640f8c2df42f30821b580ceeec13a7/transformed/hilt-android-2.31.2-alpha/AndroidManifest.xml:16:1-19:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/mitchtabian/.gradle/caches/transforms-3/d58c47a1824a10141e4c1d8dcb67b5a0/transformed/glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/57bbf32c98d55780b5b28f376c811dfd/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/7fe04da1dddca109346fa15b2a07c302/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -45,7 +46,6 @@ MERGED from [androidx.appcompat:appcompat-resources:1.3.0-beta01] /Users/mitchta
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/1a414b46ea6a42248ba5316a55e62dac/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/99bb8c4355a0e12dd02eb0d5fa5bb0bc/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b9bfea1518430675681685b882c1d156/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.dagger:hilt-android:2.31-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/7456179870c73eda167fde1506810542/transformed/hilt-android-2.31-alpha/AndroidManifest.xml:16:1-19:12
 MERGED from [androidx.fragment:fragment:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/dfc721654a2bc0e576f98d68186a9558/transformed/fragment-1.3.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/mitchtabian/.gradle/caches/transforms-3/f47cf29f03d6ebbaf46128112b585cfd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/e8608ba4fdcbe23af9d04529ea6e96b0/transformed/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -69,13 +69,13 @@ MERGED from [androidx.test.ext:junit:1.1.2] /Users/mitchtabian/.gradle/caches/tr
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/f9a4e1ba65a97d70450900399d55271a/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/d551c61bb21744203c2b3e1f7bc9e40a/transformed/lifecycle-livedata-core-2.3.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/f93275e6ab4712601afe645fdbdd85fc/transformed/lifecycle-runtime-2.3.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:17:1-50:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/50081575a11dd17645067b6f5a485c65/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:17:1-50:12
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/adf312ac5e82134998c57d281d342742/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.test:monitor:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/fcf916c999d94ef60eb77bbb39202f4e/transformed/monitor-1.3.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/a4fb4cfc5c0bad5ea6aab5aeb60bc138/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9267095bc788b0fde1c0029fa47d51b7/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.dagger:dagger-lint-aar:2.31] /Users/mitchtabian/.gradle/caches/transforms-3/da354c9db86278000cfb0f6ec3a2abe8/transformed/dagger-lint-aar-2.31/AndroidManifest.xml:16:1-19:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.31.2] /Users/mitchtabian/.gradle/caches/transforms-3/4bd08a3c440ba488f14fa28add34d59b/transformed/dagger-lint-aar-2.31.2/AndroidManifest.xml:16:1-19:12
 INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-18:12
 INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-18:12
 INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml:2:1-18:12
@@ -211,6 +211,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabia
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] /Users/mitchtabian/.gradle/caches/transforms-3/6174167f7133356e8e740f3ab50ae190/transformed/constraintlayout-2.0.2/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.3.0-beta01] /Users/mitchtabian/.gradle/caches/transforms-3/abefbe1703fb508db0b11d1deee6ba6b/transformed/appcompat-1.3.0-beta01/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.3.0-beta01] /Users/mitchtabian/.gradle/caches/transforms-3/abefbe1703fb508db0b11d1deee6ba6b/transformed/appcompat-1.3.0-beta01/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.dagger:hilt-android:2.31.2-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/12640f8c2df42f30821b580ceeec13a7/transformed/hilt-android-2.31.2-alpha/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.31.2-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/12640f8c2df42f30821b580ceeec13a7/transformed/hilt-android-2.31.2-alpha/AndroidManifest.xml:18:3-42
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/mitchtabian/.gradle/caches/transforms-3/d58c47a1824a10141e4c1d8dcb67b5a0/transformed/glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/mitchtabian/.gradle/caches/transforms-3/d58c47a1824a10141e4c1d8dcb67b5a0/transformed/glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/57bbf32c98d55780b5b28f376c811dfd/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
@@ -227,8 +229,6 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.g
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/99bb8c4355a0e12dd02eb0d5fa5bb0bc/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b9bfea1518430675681685b882c1d156/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/b9bfea1518430675681685b882c1d156/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.dagger:hilt-android:2.31-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/7456179870c73eda167fde1506810542/transformed/hilt-android-2.31-alpha/AndroidManifest.xml:18:3-42
-MERGED from [com.google.dagger:hilt-android:2.31-alpha] /Users/mitchtabian/.gradle/caches/transforms-3/7456179870c73eda167fde1506810542/transformed/hilt-android-2.31-alpha/AndroidManifest.xml:18:3-42
 MERGED from [androidx.fragment:fragment:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/dfc721654a2bc0e576f98d68186a9558/transformed/fragment-1.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/dfc721654a2bc0e576f98d68186a9558/transformed/fragment-1.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /Users/mitchtabian/.gradle/caches/transforms-3/f47cf29f03d6ebbaf46128112b585cfd/transformed/gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
@@ -275,10 +275,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] /Users/mitchtabia
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/d551c61bb21744203c2b3e1f7bc9e40a/transformed/lifecycle-livedata-core-2.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/f93275e6ab4712601afe645fdbdd85fc/transformed/lifecycle-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/f93275e6ab4712601afe645fdbdd85fc/transformed/lifecycle-runtime-2.3.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/50081575a11dd17645067b6f5a485c65/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/mitchtabian/.gradle/caches/transforms-3/50081575a11dd17645067b6f5a485c65/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.test:core:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/e0e02b64f9ac0f94a53ab28936c73fcf/transformed/core-1.3.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/adf312ac5e82134998c57d281d342742/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/adf312ac5e82134998c57d281d342742/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.test:monitor:1.3.0] /Users/mitchtabian/.gradle/caches/transforms-3/fcf916c999d94ef60eb77bbb39202f4e/transformed/monitor-1.3.0/AndroidManifest.xml:20:5-22:41
@@ -287,8 +287,8 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradl
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/a4fb4cfc5c0bad5ea6aab5aeb60bc138/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9267095bc788b0fde1c0029fa47d51b7/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/mitchtabian/.gradle/caches/transforms-3/9267095bc788b0fde1c0029fa47d51b7/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.dagger:dagger-lint-aar:2.31] /Users/mitchtabian/.gradle/caches/transforms-3/da354c9db86278000cfb0f6ec3a2abe8/transformed/dagger-lint-aar-2.31/AndroidManifest.xml:18:3-42
-MERGED from [com.google.dagger:dagger-lint-aar:2.31] /Users/mitchtabian/.gradle/caches/transforms-3/da354c9db86278000cfb0f6ec3a2abe8/transformed/dagger-lint-aar-2.31/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.31.2] /Users/mitchtabian/.gradle/caches/transforms-3/4bd08a3c440ba488f14fa28add34d59b/transformed/dagger-lint-aar-2.31.2/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.31.2] /Users/mitchtabian/.gradle/caches/transforms-3/4bd08a3c440ba488f14fa28add34d59b/transformed/dagger-lint-aar-2.31.2/AndroidManifest.xml:18:3-42
 INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
 INJECTED from /Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/AndroidManifest.xml
 	android:targetSdkVersion

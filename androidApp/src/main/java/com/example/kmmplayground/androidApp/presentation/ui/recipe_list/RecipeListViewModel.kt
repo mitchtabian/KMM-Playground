@@ -6,19 +6,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kmmplayground.shared.domain.data.RecipeData
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
-import com.example.kmmplayground.shared.presentation.ui.recipe_list.getFoodCategory
 import com.example.kmmplayground.shared.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 const val PAGE_SIZE = 30
 
@@ -47,6 +44,10 @@ constructor(
     val page = mutableStateOf(1)
 
     var recipeListScrollPosition = 0
+
+    private val foodCategoryUtil = FoodCategoryUtil()
+
+    val foodCategories = mutableStateOf(foodCategoryUtil.getAllFoodCategories())
 
     init {
         savedStateHandle.get<Int>(STATE_KEY_PAGE)?.let { p ->
@@ -162,7 +163,7 @@ constructor(
     }
 
     fun onSelectedCategoryChanged(category: String) {
-        val newCategory = getFoodCategory(category)
+        val newCategory = foodCategoryUtil.getFoodCategory(category)
         setSelectedCategory(newCategory)
         onQueryChanged(category)
     }

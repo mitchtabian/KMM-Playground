@@ -5,12 +5,13 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.example.kmmplayground.androidApp.components.RecipeList
 import com.example.kmmplayground.androidApp.components.SearchAppBar
 import com.example.kmmplayground.androidApp.presentation.theme.AppTheme
+import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
-import com.example.kmmplayground.shared.presentation.ui.recipe_list.getAllFoodCategories
 import com.example.kmmplayground.shared.util.TAG
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -36,6 +37,8 @@ fun RecipeListScreen(
 
   val page = viewModel.page.value
 
+  val foodCategories = viewModel.foodCategories.value
+
   val scaffoldState = rememberScaffoldState()
 
   AppTheme(
@@ -51,7 +54,7 @@ fun RecipeListScreen(
           onExecuteSearch = {
             viewModel.onTriggerEvent(RecipeListEvent.NewSearchEvent)
           },
-          categories = getAllFoodCategories(),
+          categories = foodCategories,
           selectedCategory = selectedCategory,
           onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
           onToggleTheme = { onToggleTheme() }

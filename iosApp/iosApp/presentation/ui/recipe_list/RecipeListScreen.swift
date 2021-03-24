@@ -9,40 +9,47 @@
 import SwiftUI
 import shared
 
+@available(iOS 14.0, *)
 struct RecipeListScreen: View {
     
-    private var recipes = [Recipe]()
-    
-    init() {
-        let recipeData = RecipeData()
-        recipes = recipeData.getSearchData()
-    }
+    @ObservedObject var viewModel = RecipeListViewModel()
     
     var body: some View {
         NavigationView{
-            List{
-                ForEach(recipes, id: \.self.id){ recipe in
-                    ZStack{
-                        VStack{
-                            RecipeCard(recipe: recipe)
-                            Spacer(minLength: 10)
+            ZStack{
+                VStack{
+                    SearchAppBar(viewModel: viewModel)
+                    List{
+                        ForEach(viewModel.recipes, id: \.self.id){ recipe in
+                            ZStack{
+                                VStack{
+                                    RecipeCard(recipe: recipe)
+                                }
+                                NavigationLink(
+                                    destination: RecipeScreen(recipe: recipe)
+                                ){
+                                    // workaround for hiding arrows
+                                    EmptyView()
+                                }.hidden().frame(width: 0)
+                            }
+                            .listRowInsets(EdgeInsets())
+                            .padding(.top, 10)
                         }
-                        NavigationLink(
-                            destination: RecipeScreen(recipe: recipe)
-                        ){
-                            // workaround for hiding arrows
-                            EmptyView()
-                        }.hidden().frame(width: 0)
                     }
+                    .listStyle(PlainListStyle())
+                    .background(Color.init(hex: 0xf2f2f2))
                 }
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.init(hex: 0xf2f2f2))
+                if viewModel.loading {
+                    ProgressView("Searching recipes...")
+                }
             }
             .navigationBarHidden(true)
+            
         }
     }
 }
 
+@available(iOS 14.0, *)
 struct RecipeListScreen_Previews: PreviewProvider {
     static var previews: some View {
         RecipeListScreen()

@@ -1,5 +1,7 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
+@available(iOS 14.0, *)
 struct ContentView: View {
 
     init(){
@@ -17,6 +19,7 @@ struct ContentView: View {
     }
 }
 
+@available(iOS 14.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

@@ -1,6 +1,5 @@
 package com.example.kmmplayground.shared.presentation.ui.recipe_list
 
-import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory.*
 
 enum class FoodCategory(val value: String){
     ERROR("error"),
@@ -15,13 +14,3 @@ enum class FoodCategory(val value: String){
     DONUT("Donut"),
 }
 
-fun getAllFoodCategories(): List<FoodCategory>{
-    return listOf(
-
-        ERROR, CHICKEN, BEEF, SOUP, DESSERT, VEGETARIAN, MILK, VEGAN, PIZZA, DONUT)
-}
-
-fun getFoodCategory(value: String): FoodCategory? {
-    val map = values().associateBy(FoodCategory::value)
-    return map[value]
-}
