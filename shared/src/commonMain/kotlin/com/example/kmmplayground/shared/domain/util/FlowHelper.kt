@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-
-//@FlowPreview
-//@ExperimentalCoroutinesApi
-//fun <T> ConflatedBroadcastChannel<T>.wrap(): CommonFlow<T> = CommonFlow(asFlow())
-
+/**
+ *  Needed for collecting a flow on ios
+ * Source:
+ * https://stackoverflow.com/questions/64175099/listen-to-kotlin-coroutine-flow-from-ios
+ */
 fun <T> Flow<T>.asCommonFlow(): CommonFlow<T> = CommonFlow(this)
 
 class CommonFlow<T>(private val origin: Flow<T>) : Flow<T> by origin {

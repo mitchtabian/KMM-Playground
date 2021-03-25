@@ -23,13 +23,23 @@ class RecipeListViewModel: ObservableObject{
     private let foodCategoryUtil = FoodCategoryUtil()
     var categories = [FoodCategory]()
     
+    // The current query
     @Published var query = ""
     
+    // Selected category chip in SearchBar
     @Published var selectedCategory: FoodCategory? = nil
     
+    // Show/hide progress bar
     @Published var loading = false
     
+    // Page number for pagination
     @Published var page = 1
+    
+    // track the recipe at the bottom of the list so we know when to trigger pagination
+    private var bottomRecipe: Recipe? = nil
+    
+    // Is a query currently in progress? This will prevent duplicate queries.
+    private var isQueryInProgress = false
     
     init(recipeService: RecipeServiceImpl){
         self.recipeService = recipeService
@@ -41,7 +51,7 @@ class RecipeListViewModel: ObservableObject{
     func onTriggerEvent(stateEvent: RecipeListEvent){
         switch stateEvent{
         case RecipeListEvent.NewSearchEvent(): newSearch()
-        //case RecipeListEvent.NextPageEvent(): TODO("pagination")
+        case RecipeListEvent.NextPageEvent(): nextPage()
         //case RecipeListEvent.RestoreStateEvent(): TODO("Probably not needed on iOS")
         default:
             doNothing()
@@ -52,7 +62,7 @@ class RecipeListViewModel: ObservableObject{
         
     }
     
-    func resetSearchState(){
+    private func resetSearchState(){
         recipes = []
         page = 1
         if(selectedCategory?.value != query){
@@ -70,7 +80,25 @@ class RecipeListViewModel: ObservableObject{
         self.query = query
     }
     
-    func newSearch() {
+    private func updateBottomRecipe(recipe: Recipe){
+        bottomRecipe = recipe
+    }
+    
+    private func incrementPage(){
+        page = page + 1
+    }
+    
+    private func appendRecipes(recipes: [Recipe]){
+        self.recipes.append(contentsOf: recipes)
+        self.updateBottomRecipe(recipe: self.recipes[self.recipes.count - 1])
+    }
+    
+    // TODO("Figure out how I'm going to handle the errors")
+    private func handleError(_ error: String){
+        // print(error)
+    }
+    
+    private func newSearch() {
         resetSearchState()
         do{
             try searchRecipes.execute(token: token, page: Int32(page), query: query).watch(block: {dataState in
@@ -81,17 +109,61 @@ class RecipeListViewModel: ObservableObject{
                     
                     self.loading = _loading
                     if(_data != nil){
-                        self.recipes = _data as! [Recipe]
+                        self.appendRecipes(recipes: _data as! [Recipe])
                     }
                     if(_error != nil){
-                        print("ERROR: newSearch: \(_error)")
+                        self.handleError("ERROR: newSearch: \(_error)")
                     }
                 }else{
-                    print("ERROR: newSearch: DataState is nil")
+                    self.handleError("ERROR: newSearch: DataState is nil")
                 }
             })
         }catch{
-            print("ERROR: newSearch: \(error)")
+            self.handleError("ERROR: newSearch: \(error)")
+        }
+    }
+    
+    func shouldQueryNextPage(recipe: Recipe) -> Bool {
+        // check if looking at the bottom recipe
+        // if lookingAtBottom -> proceed
+        // if PAGE_SIZE * page <= recipes.length
+        // if !queryInProgress
+        // else -> do nothing
+        if(recipe.id == self.bottomRecipe?.id){
+            if(Constants.RECIPE_PAGINATION_PAGE_SIZE * page <= recipes.count){
+                if(!isQueryInProgress){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    private func nextPage(){
+        incrementPage()
+        print("NEXT PAGE \(page)")
+        if(page > 1){
+            do{
+                try searchRecipes.execute(token: token, page: Int32(page), query: query).watch(block: {dataState in
+                    if dataState != nil {
+                        let _data = dataState?.data
+                        let _error = dataState?.error
+                        let _loading = dataState?.loading ?? false
+                        
+                        self.loading = _loading
+                        if(_data != nil){
+                            self.appendRecipes(recipes: _data as! [Recipe])
+                        }
+                        if(_error != nil){
+                            self.handleError("ERROR: newSearch: \(_error)")
+                        }
+                    }else{
+                        self.handleError("ERROR: newSearch: DataState is nil")
+                    }
+                })
+            }catch{
+                self.handleError("ERROR: newSearch: \(error)")
+            }
         }
     }
 }

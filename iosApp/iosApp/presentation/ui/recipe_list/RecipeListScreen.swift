@@ -24,6 +24,11 @@ struct RecipeListScreen: View {
                             ZStack{
                                 VStack{
                                     RecipeCard(recipe: recipe)
+                                        .onAppear(perform: {
+                                            if viewModel.shouldQueryNextPage(recipe: recipe){
+                                                viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NextPageEvent())
+                                            }
+                                        })
                                 }
                                 NavigationLink(
                                     destination: RecipeScreen(recipe: recipe)
