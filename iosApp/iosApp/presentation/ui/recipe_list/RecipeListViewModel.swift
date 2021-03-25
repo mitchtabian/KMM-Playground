@@ -78,14 +78,37 @@ class RecipeListViewModel: ObservableObject{
                 print("ERROR: newSearch: \(error)")
             }else{
                 flow?.watch { dataState in
-                    guard let data = dataState?.data else{
-                        // TODO("handle DataState.error")
-                        print("ERROR: newSearch: error")
-                        return
+                    if dataState != nil {
+//                        print(dataState)
+                        guard let data = dataState?.data else {
+                            guard let _error = dataState?.error else{
+                                guard let _loading = dataState?.loading else{
+                                    print("ERROR: newSearch: The use case was successful but there is no data.")
+                                    return
+                                }
+                                // ignore loading
+                                return
+                            }
+                            print("ERROR: newSearch: \(_error)")
+                            return
+                        }
+                        self.recipes = data as! [Recipe]
+                        print(self.recipes)
+                        
+//                        print(data)
+//                        if(dataState?.error != nil){
+//                            print("ERROR: newSearch: \(dataState?.error)")
+//                        }
+//                        if(dataState?.data != nil){
+//                            print("recipes: ...")
+//                            self.recipes = dataState?.data as! [Recipe]
+//                        }
+                    }else{
+                        print("ERROR: newSearch: DataState is nil")
                     }
-                    self.recipes = data as! [Recipe]
                 }
             }
+            self.loading = false
         })
     }
 }

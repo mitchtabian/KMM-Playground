@@ -8,7 +8,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-// needed to collect flow on iOS
+
+//@FlowPreview
+//@ExperimentalCoroutinesApi
+//fun <T> ConflatedBroadcastChannel<T>.wrap(): CommonFlow<T> = CommonFlow(asFlow())
+
 fun <T> Flow<T>.asCommonFlow(): CommonFlow<T> = CommonFlow(this)
 
 class CommonFlow<T>(private val origin: Flow<T>) : Flow<T> by origin {
@@ -26,3 +30,10 @@ class CommonFlow<T>(private val origin: Flow<T>) : Flow<T> by origin {
         }
     }
 }
+
+
+
+
+
+
+

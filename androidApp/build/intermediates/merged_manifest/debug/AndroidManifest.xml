@@ -18,6 +18,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.kmmplayground.androidApp.presentation.MainActivity" >
             <intent-filter>

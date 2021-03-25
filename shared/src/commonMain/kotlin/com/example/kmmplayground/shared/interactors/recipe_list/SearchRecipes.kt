@@ -16,7 +16,7 @@ class SearchRecipes(
 ) {
 
     @Throws(Exception::class)
-    suspend fun execute(
+    fun execute(
         token: String,
         page: Int,
         query: String,
