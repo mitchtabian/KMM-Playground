@@ -72,43 +72,29 @@ class RecipeListViewModel: ObservableObject{
     
     func newSearch() {
         resetSearchState()
-        loading = true
-        searchRecipes.execute(token: token, page: Int32(page), query: query, completionHandler: { flow, error in
-            if error != nil {
-                print("ERROR: newSearch: \(error)")
-            }else{
-                flow?.watch { dataState in
-                    if dataState != nil {
-//                        print(dataState)
-                        guard let data = dataState?.data else {
-                            guard let _error = dataState?.error else{
-                                guard let _loading = dataState?.loading else{
-                                    print("ERROR: newSearch: The use case was successful but there is no data.")
-                                    return
-                                }
-                                // ignore loading
-                                return
-                            }
-                            print("ERROR: newSearch: \(_error)")
-                            return
-                        }
-                        self.recipes = data as! [Recipe]
-                        print(self.recipes)
-                        
-//                        print(data)
-//                        if(dataState?.error != nil){
-//                            print("ERROR: newSearch: \(dataState?.error)")
-//                        }
-//                        if(dataState?.data != nil){
-//                            print("recipes: ...")
-//                            self.recipes = dataState?.data as! [Recipe]
-//                        }
-                    }else{
-                        print("ERROR: newSearch: DataState is nil")
+        do{
+            try searchRecipes.execute(token: token, page: Int32(page), query: query).watch(block: {dataState in
+                if dataState != nil {
+                    let _data = dataState?.data
+                    let _error = dataState?.error
+                    let _loading = dataState?.loading ?? false
+                    
+                    self.loading = _loading
+                    if(_data != nil){
+                        self.recipes = _data as! [Recipe]
                     }
+                    if(_error != nil){
+                        print("ERROR: newSearch: \(_error)")
+                    }
+                }else{
+                    print("ERROR: newSearch: DataState is nil")
                 }
-            }
-            self.loading = false
-        })
+            })
+        }catch{
+            print("ERROR: newSearch: \(error)")
+        }
     }
 }
+
+
+
