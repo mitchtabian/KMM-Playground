@@ -24,7 +24,6 @@ class RecipeServiceImpl: RecipeService {
         }
     }
 
-    @Throws(Exception::class)
     override suspend fun get(token: String, id: Int): RecipeDto {
         return client.get<RecipeDto>("$BASE_URL/get/?id=${id}"){
             headers {
@@ -33,11 +32,7 @@ class RecipeServiceImpl: RecipeService {
         }
     }
 
-    @Throws(Exception::class)
     override suspend fun search(token: String, page: Int, query: String): RecipeSearchResponse {
-        if(query == "error"){ // For testing
-            throw Exception("Forcing an error")
-        }
         return client.get<RecipeSearchResponse>("$BASE_URL/search/?page=$page&query=$query"){
             headers {
                 append("Authorization", "Token $token")

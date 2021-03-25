@@ -12,6 +12,9 @@ class RecipeListViewModel: ObservableObject{
     
     // Dependencies
     let recipeService: RecipeServiceImpl
+    let dtoMapper = RecipeDtoMapper()
+    let searchRecipes: SearchRecipes
+    private let token = "9c8b06d329136da358c2d00e76946b0111ce2c48"
     
     // Variables
     private let recipeData = RecipeData()
@@ -30,6 +33,7 @@ class RecipeListViewModel: ObservableObject{
     
     init(recipeService: RecipeServiceImpl){
         self.recipeService = recipeService
+        self.searchRecipes = SearchRecipes(recipeService: self.recipeService, dtoMapper: self.dtoMapper)
         categories = foodCategoryUtil.getAllFoodCategories()
         onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
     }
@@ -69,17 +73,19 @@ class RecipeListViewModel: ObservableObject{
     func newSearch() {
         resetSearchState()
         loading = true
-        recipeService.search(token: "9c8b06d329136da358c2d00e76946b0111ce2c48", page: 1, query: self.query, completionHandler: { recipeSearchResponse, error in
+        searchRecipes.execute(token: token, page: Int32(page), query: query, completionHandler: { flow, error in
             if error != nil {
                 print("ERROR: newSearch: \(error)")
             }else{
-                // Shouldn't have to check for nil on `recipeSearchResponse`... Must be an ios thing?
-                if ((recipeSearchResponse != nil) && (recipeSearchResponse?.results) != nil) {
-                    let dtoMapper = RecipeDtoMapper()
-                    self.recipes = dtoMapper.toDomainList(initial: recipeSearchResponse!.results)
+                flow?.watch { dataState in
+                    guard let data = dataState?.data else{
+                        // TODO("handle DataState.error")
+                        print("ERROR: newSearch: error")
+                        return
+                    }
+                    self.recipes = data as! [Recipe]
                 }
             }
-            self.loading = false
         })
     }
 }
