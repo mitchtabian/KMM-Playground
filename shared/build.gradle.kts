@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization") version "1.4.30"
+//    id("com.squareup.sqldelight")
     id("com.android.library")
 }
 android {
@@ -32,6 +33,7 @@ kotlin {
     }
     sourceSets {
         val ktor_version = "1.5.2"
+        val sqldelight = "1.4.4"
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
@@ -39,6 +41,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktor_version")
                 implementation("io.ktor:ktor-client-json:$ktor_version")
                 implementation("io.ktor:ktor-client-serialization:$ktor_version")
+//                implementation("com.squareup.sqldelight:runtime:$sqldelight")
             }
         }
         val commonTest by getting {
@@ -53,6 +56,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-android:$ktor_version")
                 implementation("io.ktor:ktor-client-serialization-jvm:$ktor_version")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2")
+//                implementation("com.squareup.sqldelight:android-driver:$sqldelight")
             }
         }
         val androidTest by getting {
@@ -64,6 +68,7 @@ kotlin {
         val iosMain by getting {
             dependencies{
                 implementation("io.ktor:ktor-client-ios:$ktor_version")
+//                implementation("com.squareup.sqldelight:native-driver:$sqldelight")
             }
         }
         val iosTest by getting
@@ -84,3 +89,12 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 
 tasks.getByName("build").dependsOn(packForXcode)
+
+//sqldelight {
+//   database("RecipeDatabase") {
+//        packageName = "com.example.kmmplayground.cache"
+//        sourceFolders = listOf("sqldelight")
+//    }
+//}
+
+

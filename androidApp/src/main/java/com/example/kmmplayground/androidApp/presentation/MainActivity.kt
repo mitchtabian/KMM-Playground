@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         val searchRecipes = SearchRecipes(
             recipeService = RecipeServiceImpl(),
             dtoMapper = RecipeDtoMapper()

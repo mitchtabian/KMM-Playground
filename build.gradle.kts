@@ -11,6 +11,9 @@ buildscript {
 
         val hilt = "2.31.2-alpha"
         classpath("com.google.dagger:hilt-android-gradle-plugin:$hilt")
+
+//        val sqlDelight = "1.4.4"
+//        classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelight")
     }
 }
 
