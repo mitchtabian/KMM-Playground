@@ -56,7 +56,7 @@ struct SearchAppBar: View {
 
 @available(iOS 14.0, *)
 struct SearchAppBar_Previews: PreviewProvider {
-    static var viewModel = RecipeListViewModel()
+    static var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
     static var previews: some View {
         SearchAppBar(viewModel: viewModel)
     }

@@ -2,7 +2,7 @@ package com.example.kmmplayground.shared.domain.data
 
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
-import com.example.kmmplayground.shared.network.response.RecipeSearchResponse
+import com.example.kmmplayground.shared.network.model.RecipeSearchResponse
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 

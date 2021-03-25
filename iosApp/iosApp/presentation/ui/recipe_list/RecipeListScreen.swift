@@ -12,7 +12,7 @@ import shared
 @available(iOS 14.0, *)
 struct RecipeListScreen: View {
     
-    @ObservedObject var viewModel = RecipeListViewModel()
+    @ObservedObject var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
     
     var body: some View {
         NavigationView{

@@ -10,6 +10,10 @@ import shared
 
 class RecipeListViewModel: ObservableObject{
     
+    // Dependencies
+    let recipeService: RecipeServiceImpl
+    
+    // Variables
     private let recipeData = RecipeData()
     var recipes = [Recipe]()
     
@@ -24,7 +28,8 @@ class RecipeListViewModel: ObservableObject{
     
     @Published var page = 1
     
-    init(){
+    init(recipeService: RecipeServiceImpl){
+        self.recipeService = recipeService
         categories = foodCategoryUtil.getAllFoodCategories()
         onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
     }
@@ -64,9 +69,17 @@ class RecipeListViewModel: ObservableObject{
     func newSearch() {
         resetSearchState()
         loading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        recipeService.search(token: "9c8b06d329136da358c2d00e76946b0111ce2c48", page: 1, query: self.query, completionHandler: { recipeSearchResponse, error in
+            if error != nil {
+                print("ERROR: newSearch: \(error)")
+            }else{
+                // Shouldn't have to check for nil on `recipeSearchResponse`... Must be an ios thing?
+                if ((recipeSearchResponse != nil) && (recipeSearchResponse?.results) != nil) {
+                    let dtoMapper = RecipeDtoMapper()
+                    self.recipes = dtoMapper.toDomainList(initial: recipeSearchResponse!.results)
+                }
+            }
             self.loading = false
-            self.recipes = self.recipeData.getSearchData()
-        }
+        })
     }
 }
