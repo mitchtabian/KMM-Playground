@@ -58,9 +58,7 @@ class RecipeListViewModel: ObservableObject{
         }
     }
     
-    func doNothing(){
-        
-    }
+    func doNothing(){}
     
     private func resetSearchState(){
         recipes = []
