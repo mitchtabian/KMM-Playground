@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="KMMPlayground.shared.jvmMain" target="1.6" />
+      <module name="KMMPlayground.shared.jvmTest" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
