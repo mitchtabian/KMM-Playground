@@ -4,7 +4,7 @@
             "outputFile": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/mitchtabian/.gradle/caches/transforms-3/abefbe1703fb508db0b11d1deee6ba6b/transformed/appcompat-1.3.0-beta01/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/mitchtabian/.gradle/caches/transforms-3/1babe371f383d94b6080ebe8ecf82694/transformed/appcompat-1.3.0-rc01/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/mitchtabian/.gradle/caches/transforms-3/257a4c46b2eaf4e944d69b3986b2466b/transformed/material-1.2.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/Users/mitchtabian/.gradle/caches/transforms-3/2f8654ab7619da1355f3287dcabf7fe4/transformed/material-1.3.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",

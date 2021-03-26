@@ -8,15 +8,15 @@ plugins {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.2.1")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
+    implementation("com.google.android.material:material:1.3.0")
+    implementation("androidx.appcompat:appcompat:1.3.0-rc01")
 
-    val composeVersion = "1.0.0-beta01"
+    val composeVersion = "1.0.0-beta03"
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling:$composeVersion")
     implementation("androidx.compose.foundation:foundation:$composeVersion")
+    implementation("androidx.compose.compiler:compiler:$composeVersion")
 
     val constraintLayoutCompose = "1.0.0-alpha03"
     implementation("androidx.constraintlayout:constraintlayout-compose:$constraintLayoutCompose")
@@ -69,9 +69,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        useIR = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.0-beta01"
+        kotlinCompilerExtensionVersion = "1.0.0-beta03"
     }
 }
+
+

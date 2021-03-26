@@ -16,11 +16,11 @@
         "source": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/res/font/quicksand_light.ttf"
     },
     {
-        "merged": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/build/intermediates/res/merged/debug/font_quicksand_regular.ttf.flat",
-        "source": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/res/font/quicksand_regular.ttf"
-    },
-    {
         "merged": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/build/intermediates/res/merged/debug/font_quicksand_medium.ttf.flat",
         "source": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/res/font/quicksand_medium.ttf"
+    },
+    {
+        "merged": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/build/intermediates/res/merged/debug/font_quicksand_regular.ttf.flat",
+        "source": "/Users/mitchtabian/AndroidStudioProjects/KMMPlayground/androidApp/src/main/res/font/quicksand_regular.ttf"
     }
 ]

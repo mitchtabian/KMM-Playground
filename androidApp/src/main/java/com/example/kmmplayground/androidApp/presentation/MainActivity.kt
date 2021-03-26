@@ -37,17 +37,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val searchRecipes = SearchRecipes(
-            recipeService = RecipeServiceImpl(),
-            dtoMapper = RecipeDtoMapper()
-        )
-            searchRecipes.execute(
-                token = "9c8b06d329136da358c2d00e76946b0111ce2c48",
-                page = 1,
-                query = ""
-            ).onEach { dataState ->
-                println(dataState)
-            }.launchIn(CoroutineScope(IO))
+//        val searchRecipes = SearchRecipes(
+//            recipeService = RecipeServiceImpl(),
+//            dtoMapper = RecipeDtoMapper()
+//        )
+//            searchRecipes.execute(
+//                token = "9c8b06d329136da358c2d00e76946b0111ce2c48",
+//                page = 1,
+//                query = ""
+//            ).onEach { dataState ->
+//                println(dataState)
+//            }.launchIn(CoroutineScope(IO))
 
         setContent {
             val navController = rememberNavController()
