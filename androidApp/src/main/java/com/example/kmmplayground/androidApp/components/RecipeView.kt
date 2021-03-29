@@ -30,7 +30,7 @@ fun RecipeView(
                 contentDescription = recipe.title,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(225.dp),
+                    .height(IMAGE_HEIGHT.dp),
                 contentScale = ContentScale.Crop,
             )
             Column(
