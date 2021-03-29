@@ -10,9 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.kmmplayground.androidApp.components.IMAGE_HEIGHT
-import com.example.kmmplayground.androidApp.components.LoadingRecipeShimmer
-import com.example.kmmplayground.androidApp.components.RecipeView
+import com.example.kmmplayground.androidApp.presentation.components.IMAGE_HEIGHT
+import com.example.kmmplayground.androidApp.presentation.components.LoadingRecipeShimmer
+import com.example.kmmplayground.androidApp.presentation.components.RecipeView
 import com.example.kmmplayground.androidApp.presentation.theme.AppTheme
 import com.example.kmmplayground.shared.presentation.ui.recipe.RecipeEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi

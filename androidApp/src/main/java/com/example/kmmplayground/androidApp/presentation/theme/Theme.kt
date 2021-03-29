@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.kmmplayground.androidApp.components.CircularIndeterminateProgressBar
+import com.example.kmmplayground.androidApp.presentation.components.CircularIndeterminateProgressBar
 
 private val LightThemeColors = lightColors(
     primary = Blue600,

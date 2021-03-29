@@ -1,4 +1,4 @@
-package com.example.kmmplayground.androidApp.components
+package com.example.kmmplayground.androidApp.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator

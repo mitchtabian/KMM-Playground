@@ -1,4 +1,4 @@
-package com.example.kmmplayground.androidApp.components
+package com.example.kmmplayground.androidApp.presentation.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
