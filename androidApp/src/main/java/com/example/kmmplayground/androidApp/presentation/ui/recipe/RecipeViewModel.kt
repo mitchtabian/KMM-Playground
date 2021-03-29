@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kmmplayground.shared.domain.data.RecipeData
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.interactors.recipe.GetRecipe
 import com.example.kmmplayground.shared.presentation.ui.recipe.RecipeEvent
 import com.example.kmmplayground.shared.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +27,7 @@ class RecipeViewModel
 @Inject
 constructor(
     private val state: SavedStateHandle,
+    private val getRecipe: GetRecipe,
 ): ViewModel(){
 
     val recipe: MutableState<Recipe?> = mutableStateOf(null)
@@ -59,9 +61,17 @@ constructor(
     }
 
     private fun getRecipe(id: Int){
-        // TODO("Execute use case")
-        val recipeData = RecipeData()
-        val recipe = recipeData.findRecipe(id)
-        this.recipe.value = recipe
+        getRecipe.execute(id).onEach { dataState ->
+            loading.value = dataState.loading
+
+            dataState.data?.let { data ->
+                recipe.value = data
+                state.set(STATE_KEY_RECIPE, data.id)
+            }
+
+            dataState.error?.let { error ->
+                Log.e(TAG, "getRecipe: ${error}")
+            }
+        }.launchIn(viewModelScope)
     }
 }

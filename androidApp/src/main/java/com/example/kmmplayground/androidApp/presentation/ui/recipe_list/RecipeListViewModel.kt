@@ -6,16 +6,23 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kmmplayground.shared.cache.DriverFactory
 import com.example.kmmplayground.shared.domain.data.RecipeData
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.interactors.recipe_list.SearchRecipes
+import com.example.kmmplayground.shared.network.RecipeServiceImpl
+import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
 import com.example.kmmplayground.shared.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Named
 
 const val PAGE_SIZE = 30
 
@@ -29,8 +36,9 @@ class RecipeListViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
+    private val searchRecipes: SearchRecipes,
+    private @Named("auth_token") val token: String,
 ) : ViewModel() {
-
 
     val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
@@ -105,14 +113,17 @@ constructor(
         // New search. Reset the state
         resetSearchState()
 
-        // TODO("execute use case")
-        viewModelScope.launch {
-            loading.value = true
-            delay(1000)
-            val recipeData = RecipeData()
-            recipes.value = recipeData.getSearchData()
-            loading.value = false
-        }
+        searchRecipes.execute(token = token, page = page.value, query = query.value).onEach { dataState ->
+            loading.value = dataState.loading
+
+            dataState.data?.let { list ->
+                recipes.value = list
+            }
+
+            dataState.error?.let { error ->
+                Log.e(TAG, "newSearch: ${error}")
+            }
+        }.launchIn(viewModelScope)
     }
 
     private fun nextPage() {
@@ -121,7 +132,17 @@ constructor(
             Log.d(TAG, "nextPage: triggered: ${page.value}")
 
             if (page.value > 1) {
-                // TODO("execute use case")
+                searchRecipes.execute(token = token, page = page.value, query = query.value).onEach { dataState ->
+                    loading.value = dataState.loading
+
+                    dataState.data?.let { list ->
+                        appendRecipes(list)
+                    }
+
+                    dataState.error?.let { error ->
+                        Log.e(TAG, "newSearch: ${error}")
+                    }
+                }.launchIn(viewModelScope)
             }
         }
     }

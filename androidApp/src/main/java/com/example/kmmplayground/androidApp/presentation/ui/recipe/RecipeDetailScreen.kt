@@ -27,7 +27,7 @@ fun RecipeDetailScreen(
   viewModel: RecipeViewModel,
 ){
   if (recipeId == null){
-    TODO("Show Invalid Recipe")
+    Text("Invalid Recipe")
   }else {
     // fire a one-off event to get the recipe from api
     val onLoad = viewModel.onLoad.value
@@ -60,7 +60,6 @@ fun RecipeDetailScreen(
             LoadingRecipeShimmer(imageHeight = IMAGE_HEIGHT.dp)
           }
           else if(!loading && recipe == null && onLoad){
-            //TODO("Show Invalid Recipe")
             Text("Invalid Recipe")
           }
           else {

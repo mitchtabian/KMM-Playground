@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("kotlinx-serialization")
+    id("com.squareup.sqldelight")
     id("com.android.library")
 }
 android {
@@ -23,15 +24,23 @@ android {
 }
 kotlin {
     android()
-    ios {
-        binaries {
-            framework {
-                baseName = "shared"
-            }
-        }
+//    ios {
+//        binaries {
+//            framework {
+//                baseName = "shared"
+//            }
+//        }
+//    }
+    val sdkName: String? = System.getenv("SDK_NAME")
+    val isiOSDevice = sdkName.orEmpty().startsWith("iphoneos")
+    if (isiOSDevice) {
+        iosArm64("ios")
+    } else {
+        iosX64("ios")
     }
     sourceSets {
         val ktor_version = "1.5.2"
+        val sqldelight = "1.4.3"
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
@@ -39,6 +48,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktor_version")
                 implementation("io.ktor:ktor-client-json:$ktor_version")
                 implementation("io.ktor:ktor-client-serialization:$ktor_version")
+                implementation("com.squareup.sqldelight:runtime:$sqldelight")
             }
         }
         val commonTest by getting {
@@ -53,6 +63,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-android:$ktor_version")
                 implementation("io.ktor:ktor-client-serialization-jvm:$ktor_version")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2")
+                implementation("com.squareup.sqldelight:android-driver:$sqldelight")
 
             }
         }
@@ -65,6 +76,7 @@ kotlin {
         val iosMain by getting {
             dependencies{
                 implementation("io.ktor:ktor-client-ios:$ktor_version")
+                implementation("com.squareup.sqldelight:native-driver:$sqldelight")
             }
         }
         val iosTest by getting
@@ -72,17 +84,24 @@ kotlin {
     }
 }
 
-val packForXcode by tasks.creating(Sync::class) {
-    group = "build"
-    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
-    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
-    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
-    inputs.property("mode", mode)
-    dependsOn(framework.linkTask)
-    val targetDir = File(buildDir, "xcode-frameworks")
-    from({ framework.outputDirectory })
-    into(targetDir)
-}
+//val packForXcode by tasks.creating(Sync::class) {
+//    group = "build"
+//    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+//    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+//    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+//    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+//    inputs.property("mode", mode)
+//    dependsOn(framework.linkTask)
+//    val targetDir = File(buildDir, "xcode-frameworks")
+//    from({ framework.outputDirectory })
+//    into(targetDir)
+//}
 
-tasks.getByName("build").dependsOn(packForXcode)
+//tasks.getByName("build").dependsOn(packForXcode)
+
+sqldelight {
+    database("RecipeDatabase") {
+        packageName = "com.example.kmmplayground.cache"
+        sourceFolders = listOf("sqldelight")
+    }
+}
