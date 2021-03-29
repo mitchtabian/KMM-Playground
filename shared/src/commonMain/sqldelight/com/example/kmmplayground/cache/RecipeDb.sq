@@ -38,3 +38,7 @@ ORDER BY date_updated DESC LIMIT :pageSize OFFSET ((:page - 1) * :pageSize);
 getAllRecipes:
 SELECT * FROM recipe_Entity
 ORDER BY date_updated DESC LIMIT :pageSize OFFSET ((:page - 1) * :pageSize);
+
+getRecipeById:
+SELECT * FROM recipe_Entity
+WHERE id = :id;
