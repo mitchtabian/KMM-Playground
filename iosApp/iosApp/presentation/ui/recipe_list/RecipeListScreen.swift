@@ -12,7 +12,18 @@ import shared
 @available(iOS 14.0, *)
 struct RecipeListScreen: View {
     
-    @ObservedObject var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
+    @ObservedObject var viewModel: RecipeListViewModel
+    
+    init(){
+        let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self)
+        let token = DIContainer.shared.resolve<String>(name: "auth_token")
+        let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self)
+        viewModel = RecipeListViewModel(
+            searchRecipes: searchRecipes,
+            token: token,
+            foodCategoryUtil: foodCategoryUtil
+        )
+    }
     
     var body: some View {
         NavigationView{
