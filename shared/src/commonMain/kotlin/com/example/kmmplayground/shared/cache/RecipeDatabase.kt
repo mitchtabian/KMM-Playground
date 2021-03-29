@@ -8,6 +8,5 @@ expect class DriverFactory {
 }
 
 fun createDatabase(driverFactory: DriverFactory): RecipeDatabase {
-    val driver = driverFactory.createDriver()
-    return RecipeDatabase(driver)
+    return RecipeDatabase(driverFactory.createDriver())
 }

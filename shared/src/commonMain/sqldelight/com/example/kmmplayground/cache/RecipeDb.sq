@@ -1,4 +1,4 @@
-CREATE TABLE  recipes(
+CREATE TABLE  recipe_Entity(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     publisher TEXT NOT NULL,
@@ -12,11 +12,11 @@ CREATE TABLE  recipes(
 
 selectAll:
 SELECT *
-FROM recipes;
+FROM recipe_Entity;
 
 insertRecipe:
 INSERT OR REPLACE
-INTO recipes (
+INTO recipe_Entity (
     id,
     title,
     publisher,
@@ -29,7 +29,12 @@ INTO recipes (
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 searchRecipes:
-SELECT * FROM recipes
+SELECT * FROM recipe_Entity
 WHERE title LIKE ('%' || :query || '%')
 OR ingredients LIKE ('%' || :query || '%')
+ORDER BY date_updated DESC LIMIT :pageSize OFFSET ((:page - 1) * :pageSize);
+
+
+getAllRecipes:
+SELECT * FROM recipe_Entity
 ORDER BY date_updated DESC LIMIT :pageSize OFFSET ((:page - 1) * :pageSize);

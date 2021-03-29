@@ -7,6 +7,8 @@ import kotlinx.datetime.*
 
 class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
 
+    private val dateUtil = DateUtil()
+
     override fun mapToDomainModel(model: RecipeDto): Recipe {
         return Recipe(
             id = model.pk,
@@ -16,13 +18,12 @@ class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
             publisher = model.publisher,
             sourceUrl = model.sourceUrl,
             ingredients = model.ingredients,
-            dateAdded = DateUtil().now(), // TODO("fix this later")
-            dateUpdated = DateUtil().now(), // TODO("fix this later")
+            dateAdded = dateUtil.toLocalDate(model.longDateAdded.toDouble()),
+            dateUpdated = dateUtil.toLocalDate(model.longDateUpdated.toDouble()),
         )
     }
 
     override fun mapFromDomainModel(domainModel: Recipe): RecipeDto {
-        val currentMoment: Instant = Clock.System.now()
         return RecipeDto(
             pk = domainModel.id,
             title = domainModel.title,
@@ -31,8 +32,8 @@ class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
             publisher = domainModel.publisher,
             sourceUrl = domainModel.sourceUrl,
             ingredients = domainModel.ingredients,
-            longDateAdded = currentMoment.toEpochMilliseconds(), // TODO("fix this later")
-            longDateUpdated = currentMoment.toEpochMilliseconds(), // TODO("fix this later")
+            longDateAdded = dateUtil.toEpochMilliseconds(domainModel.dateAdded).toLong(),
+            longDateUpdated = dateUtil.toEpochMilliseconds(domainModel.dateUpdated).toLong()
         )
     }
 
