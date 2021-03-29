@@ -6,6 +6,7 @@ plugins {
     id("com.squareup.sqldelight")
     id("com.android.library")
 }
+
 android {
     compileSdkVersion(29)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -31,6 +32,15 @@ kotlin {
     } else {
         iosX64("ios")
     }
+
+    ios {
+        binaries {
+            framework {
+                baseName = "shared"
+            }
+        }
+    }
+
     sourceSets {
         val ktor_version = "1.5.2"
         val sqldelight = "1.4.3"
@@ -83,3 +93,22 @@ sqldelight {
         sourceFolders = listOf("sqldelight")
     }
 }
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+
+tasks.getByName("build").dependsOn(packForXcode)
+
+
+
+

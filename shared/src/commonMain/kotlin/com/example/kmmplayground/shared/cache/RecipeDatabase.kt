@@ -3,10 +3,15 @@ package com.example.kmmplayground.shared.cache
 import com.example.kmmplayground.cache.RecipeDatabase
 import com.squareup.sqldelight.db.SqlDriver
 
-expect class DriverFactory {
-    fun createDriver(): SqlDriver
+class RecipeDatabaseFactory(
+    private val driverFactory: DriverFactory
+){
+    fun createDatabase(): RecipeDatabase {
+        return RecipeDatabase(driverFactory.createDriver())
+    }
 }
 
-fun createDatabase(driverFactory: DriverFactory): RecipeDatabase {
-    return RecipeDatabase(driverFactory.createDriver())
+expect class DriverFactory {
+   fun createDriver(): SqlDriver
 }
+

@@ -13,8 +13,12 @@ class RecipeListViewModel: ObservableObject{
     // Dependencies
     let recipeService: RecipeServiceImpl
     let dtoMapper = RecipeDtoMapper()
+    let recipeDatabase: RecipeDatabase
+    let driverFactory = DriverFactory()
+    let recipeEntityMapper = RecipeEntityMapper()
+    let dateUtil = DateUtil()
     let searchRecipes: SearchRecipes
-    private let token = "9c8b06d329136da358c2d00e76946b0111ce2c48"
+    private let token = "Token 9c8b06d329136da358c2d00e76946b0111ce2c48"
     
     // Variables
     private let recipeData = RecipeData()
@@ -43,7 +47,14 @@ class RecipeListViewModel: ObservableObject{
     
     init(recipeService: RecipeServiceImpl){
         self.recipeService = recipeService
-        self.searchRecipes = SearchRecipes(recipeService: self.recipeService, dtoMapper: self.dtoMapper)
+        self.recipeDatabase = RecipeDatabaseFactory(driverFactory: driverFactory).createDatabase()
+        self.searchRecipes = SearchRecipes(
+            recipeService: self.recipeService,
+            dtoMapper: self.dtoMapper,
+            recipeDatabase: recipeDatabase,
+            recipeEntityMapper: recipeEntityMapper,
+            dateUtil: dateUtil
+        )
         categories = foodCategoryUtil.getAllFoodCategories()
         onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
     }
