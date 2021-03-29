@@ -1,5 +1,6 @@
 package com.example.kmmplayground.shared.interactors.recipe_list
 
+import com.example.kmmplayground.cache.RecipeDatabase
 import com.example.kmmplayground.shared.domain.data.DataState
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.CommonFlow
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.flow
 class SearchRecipes(
     private val recipeService: RecipeService,
     private val dtoMapper: RecipeDtoMapper,
+//    private val recipeDatabase: RecipeDatabase,
 ) {
 
     @Throws(Exception::class)

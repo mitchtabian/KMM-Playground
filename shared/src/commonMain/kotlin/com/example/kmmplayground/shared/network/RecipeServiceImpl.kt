@@ -1,8 +1,6 @@
 package com.example.kmmplayground.shared.network
 
-import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.network.model.RecipeDto
-import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
 import com.example.kmmplayground.shared.network.model.RecipeSearchResponse
 import io.ktor.client.*
 import io.ktor.client.features.json.*
@@ -10,7 +8,7 @@ import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 
 
-//const val token = "9c8b06d329136da358c2d00e76946b0111ce2c48"
+//const val token = "Token 9c8b06d329136da358c2d00e76946b0111ce2c48"
 
 class RecipeServiceImpl: RecipeService {
 
@@ -27,7 +25,7 @@ class RecipeServiceImpl: RecipeService {
     override suspend fun get(token: String, id: Int): RecipeDto {
         return client.get<RecipeDto>("$BASE_URL/get/?id=${id}"){
             headers {
-                append("Authorization", "Token $token")
+                append("Authorization", token)
             }
         }
     }
@@ -35,7 +33,7 @@ class RecipeServiceImpl: RecipeService {
     override suspend fun search(token: String, page: Int, query: String): RecipeSearchResponse {
         return client.get<RecipeSearchResponse>("$BASE_URL/search/?page=$page&query=$query"){
             headers {
-                append("Authorization", "Token $token")
+                append("Authorization", token)
             }
         }
     }
