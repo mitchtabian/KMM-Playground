@@ -1,10 +1,9 @@
 //
 //  DefaultTextView.swift
-//  
+//
 //
 //  Created by Mitch Tabian on 2021-03-23.
 //
-
 import SwiftUI
 
 struct DefaultText: View {

@@ -12,7 +12,19 @@ import shared
 @available(iOS 14.0, *)
 struct RecipeListScreen: View {
     
-    @ObservedObject var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
+    @ObservedObject var viewModel: RecipeListViewModel
+    
+    init(
+        searchRecipes: SearchRecipes,
+        token: String,
+        foodCategoryUtil: FoodCategoryUtil
+    ) {
+        viewModel = RecipeListViewModel(
+            searchRecipes: searchRecipes,
+            token: token,
+            foodCategoryUtil: foodCategoryUtil
+        )
+    }
     
     var body: some View {
         NavigationView{
@@ -56,7 +68,24 @@ struct RecipeListScreen: View {
 
 @available(iOS 14.0, *)
 struct RecipeListScreen_Previews: PreviewProvider {
+    static let recipeService = RecipeServiceImpl()
+    static let dtoMapper = RecipeDtoMapper()
+    static let driverFactory = DriverFactory()
+    static let recipeEntityMapper = RecipeEntityMapper()
+    static let dateUtil = DateUtil()
+    static let recipeDatabase = RecipeDatabaseFactory(driverFactory: driverFactory).createDatabase()
+    static let searchRecipes = SearchRecipes(
+        recipeService: recipeService,
+        dtoMapper: dtoMapper,
+        recipeDatabase: recipeDatabase,
+        recipeEntityMapper: recipeEntityMapper,
+        dateUtil: dateUtil
+    )
     static var previews: some View {
-        RecipeListScreen()
+        RecipeListScreen(
+            searchRecipes: searchRecipes,
+            token: ApiTokenProvider().provideToken(),
+            foodCategoryUtil: FoodCategoryUtil()
+        )
     }
 }
