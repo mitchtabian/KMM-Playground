@@ -30,18 +30,7 @@ struct RecipeListScreen: View {
         NavigationView{
             ZStack{
                 VStack{
-                    SearchAppBar(
-                        categories: viewModel.categories,
-                        setQuery: { query in
-                            viewModel.setQuery(query: query)
-                        },
-                        newSearchEvent: {
-                            viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
-                        },
-                        onSelectedCategoryChanged: { category in
-                            viewModel.onSelectedCategoryChanged(category: category)
-                        }
-                    )
+                    SearchAppBar(viewModel: viewModel)
                     List{
                         ForEach(viewModel.recipes, id: \.self.id){ recipe in
                             ZStack{
