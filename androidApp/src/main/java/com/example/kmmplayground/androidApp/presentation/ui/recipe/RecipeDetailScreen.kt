@@ -42,10 +42,13 @@ fun RecipeDetailScreen(
 
     val scaffoldState = rememberScaffoldState()
 
+    val dialogQueue = viewModel.dialogQueue
+
     AppTheme(
       displayProgressBar = loading,
       scaffoldState = scaffoldState,
       darkTheme = isDarkTheme,
+      dialogQueue = dialogQueue.queue.value,
     ){
       Scaffold(
         scaffoldState = scaffoldState,

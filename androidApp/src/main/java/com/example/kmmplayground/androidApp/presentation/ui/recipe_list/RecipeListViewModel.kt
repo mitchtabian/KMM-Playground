@@ -6,18 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kmmplayground.shared.cache.DriverFactory
-import com.example.kmmplayground.shared.domain.data.RecipeData
+import com.example.kmmplayground.androidApp.presentation.util.DialogQueue
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.interactors.recipe_list.SearchRecipes
-import com.example.kmmplayground.shared.network.RecipeServiceImpl
-import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
 import com.example.kmmplayground.shared.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -56,6 +52,8 @@ constructor(
     private val foodCategoryUtil = FoodCategoryUtil()
 
     val foodCategories = mutableStateOf(foodCategoryUtil.getAllFoodCategories())
+
+    val dialogQueue = DialogQueue()
 
     init {
         savedStateHandle.get<Int>(STATE_KEY_PAGE)?.let { p ->
@@ -121,7 +119,7 @@ constructor(
             }
 
             dataState.error?.let { error ->
-                Log.e(TAG, "newSearch: ${error}")
+                dialogQueue.appendErrorMessage("An Error Occurred", error)
             }
         }.launchIn(viewModelScope)
     }
@@ -140,7 +138,7 @@ constructor(
                     }
 
                     dataState.error?.let { error ->
-                        Log.e(TAG, "newSearch: ${error}")
+                        dialogQueue.appendErrorMessage("An Error Occurred", error)
                     }
                 }.launchIn(viewModelScope)
             }
