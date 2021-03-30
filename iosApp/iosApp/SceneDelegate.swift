@@ -1,19 +1,38 @@
 import UIKit
 import SwiftUI
+import shared
 
 @available(iOS 14.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let largeTitleFontAttrs = [ NSAttributedString.Key.font: UIFont(name: "avenir", size: 24)
+        ]
+        let smallTitleFontAttrs = [ NSAttributedString.Key.font: UIFont(name: "avenir", size: 20)
+        ]
+        UINavigationBar.appearance().titleTextAttributes = smallTitleFontAttrs
+        UINavigationBar.appearance().largeTitleTextAttributes = largeTitleFontAttrs
+        
+        let recipeService = RecipeServiceImpl()
+        let dtoMapper = RecipeDtoMapper()
+        let driverFactory = DriverFactory()
+        let recipeEntityMapper = RecipeEntityMapper()
+        let dateUtil = DateUtil()
+        let recipeDatabase = RecipeDatabaseFactory(driverFactory: driverFactory).createDatabase()
+        let searchRecipes = SearchRecipes(
+            recipeService: recipeService,
+            dtoMapper: dtoMapper,
+            recipeDatabase: recipeDatabase,
+            recipeEntityMapper: recipeEntityMapper,
+            dateUtil: dateUtil
+        )
+        let contentView = RecipeListScreen(
+            searchRecipes: searchRecipes,
+            token: ApiTokenProvider().provideToken(),
+            foodCategoryUtil: FoodCategoryUtil()
+        )
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

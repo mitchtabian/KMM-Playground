@@ -8,23 +8,21 @@
 
 import shared
 
-class RecipeListViewModel: ObservableObject{
+class RecipeListViewModel: ObservableObject {
     
     // Dependencies
-    let recipeService: RecipeServiceImpl
-    let dtoMapper = RecipeDtoMapper()
     let searchRecipes: SearchRecipes
-    private let token = "9c8b06d329136da358c2d00e76946b0111ce2c48"
+    let token: String
+    let foodCategoryUtil: FoodCategoryUtil
     
     // Variables
-    private let recipeData = RecipeData()
-    var recipes = [Recipe]()
-    
-    private let foodCategoryUtil = FoodCategoryUtil()
     var categories = [FoodCategory]()
     
     // The current query
     @Published var query = ""
+    
+    // The Recipes
+    @Published var recipes: [Recipe] = []
     
     // Selected category chip in SearchBar
     @Published var selectedCategory: FoodCategory? = nil
@@ -41,9 +39,14 @@ class RecipeListViewModel: ObservableObject{
     // Is a query currently in progress? This will prevent duplicate queries.
     private var isQueryInProgress = false
     
-    init(recipeService: RecipeServiceImpl){
-        self.recipeService = recipeService
-        self.searchRecipes = SearchRecipes(recipeService: self.recipeService, dtoMapper: self.dtoMapper)
+    init(
+        searchRecipes: SearchRecipes,
+        token: String,
+        foodCategoryUtil: FoodCategoryUtil
+    ){
+        self.searchRecipes = searchRecipes
+        self.token = token
+        self.foodCategoryUtil = foodCategoryUtil
         categories = foodCategoryUtil.getAllFoodCategories()
         onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
     }

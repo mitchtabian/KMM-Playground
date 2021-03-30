@@ -1,6 +1,5 @@
-package com.example.kmmplayground.androidApp.components
+package com.example.kmmplayground.androidApp.presentation.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
@@ -8,12 +7,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.example.kmmplayground.androidApp.util.DEFAULT_RECIPE_IMAGE
-import com.example.kmmplayground.androidApp.util.loadPicture
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.google.accompanist.coil.CoilImage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 const val IMAGE_HEIGHT = 260
@@ -28,18 +25,14 @@ fun RecipeView(
             .fillMaxWidth()
     ) {
         item {
-            val image = loadPicture(url = recipe.featuredImage, defaultImage = DEFAULT_RECIPE_IMAGE).value
-            image?.let { img ->
-                Image(
-                    bitmap = img.asImageBitmap(),
-                    contentDescription = "Recipe Featured Image",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(IMAGE_HEIGHT.dp)
-                    ,
-                    contentScale = ContentScale.Crop,
-                )
-            }
+            CoilImage(
+                data = recipe.featuredImage,
+                contentDescription = recipe.title,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(IMAGE_HEIGHT.dp),
+                contentScale = ContentScale.Crop,
+            )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()

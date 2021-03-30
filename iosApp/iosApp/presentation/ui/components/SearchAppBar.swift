@@ -56,7 +56,26 @@ struct SearchAppBar: View {
 
 @available(iOS 14.0, *)
 struct SearchAppBar_Previews: PreviewProvider {
-    static var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
+    static let recipeService = RecipeServiceImpl()
+    static let dtoMapper = RecipeDtoMapper()
+    static let driverFactory = DriverFactory()
+    static let recipeEntityMapper = RecipeEntityMapper()
+    static let dateUtil = DateUtil()
+    static let recipeDatabase = RecipeDatabaseFactory(driverFactory: driverFactory).createDatabase()
+    static let searchRecipes = SearchRecipes(
+        recipeService: recipeService,
+        dtoMapper: dtoMapper,
+        recipeDatabase: recipeDatabase,
+        recipeEntityMapper: recipeEntityMapper,
+        dateUtil: dateUtil
+    )
+    static let foodCategoryUtil = FoodCategoryUtil()
+    static let token = ApiTokenProvider().provideToken()
+    static let viewModel = RecipeListViewModel(
+        searchRecipes: searchRecipes,
+        token: token,
+        foodCategoryUtil: foodCategoryUtil
+    )
     static var previews: some View {
         SearchAppBar(viewModel: viewModel)
     }

@@ -5,12 +5,10 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
-import com.example.kmmplayground.androidApp.components.RecipeList
-import com.example.kmmplayground.androidApp.components.SearchAppBar
+import com.example.kmmplayground.androidApp.presentation.components.RecipeList
+import com.example.kmmplayground.androidApp.presentation.components.SearchAppBar
 import com.example.kmmplayground.androidApp.presentation.theme.AppTheme
-import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
 import com.example.kmmplayground.shared.util.TAG
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -38,9 +38,8 @@ dependencies {
 //    val hiltLifecycleViewModel = "1.0.0-alpha03"
 //    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleViewModel")
 
-    val glide = "4.11.0"
-    implementation("com.github.bumptech.glide:glide:$glide")
-    kapt("com.github.bumptech.glide:compiler:$glide")
+    val accompanistCoil = "0.7.0"
+    implementation("com.google.accompanist:accompanist-coil:$accompanistCoil")
 
     val kotlinDatetime = "0.1.1"
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinDatetime")
