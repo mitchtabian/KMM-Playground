@@ -71,6 +71,7 @@ struct SearchAppBar_Previews: PreviewProvider {
     )
     static let foodCategoryUtil = FoodCategoryUtil()
     static let token = ApiTokenProvider().provideToken()
+    static let dialogQueue = DialogQueue()
     static let viewModel = RecipeListViewModel(
         searchRecipes: searchRecipes,
         token: token,

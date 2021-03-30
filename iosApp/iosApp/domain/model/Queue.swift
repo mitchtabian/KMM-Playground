@@ -31,7 +31,7 @@ public struct Queue<T> {
         }
     }
     
-    public mutating func element() throws -> T  {
+    public func element() throws -> T  {
         guard let first = array.first else{
             throw QueueError.NoSuchElementException
         }
@@ -55,7 +55,7 @@ public struct Queue<T> {
         }
     }
 
-    public mutating func peek() -> T? {
+    public func peek() -> T? {
         if isEmpty {
             return nil
         } else {

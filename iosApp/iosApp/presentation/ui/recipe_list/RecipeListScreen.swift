@@ -14,6 +14,9 @@ struct RecipeListScreen: View {
     
     @ObservedObject var viewModel: RecipeListViewModel
     
+    // queue for messages to be displayed in UI (FIFO)
+    @ObservedObject var dialogQueue: DialogQueue = DialogQueue()
+    
     init(
         searchRecipes: SearchRecipes,
         token: String,
@@ -24,6 +27,7 @@ struct RecipeListScreen: View {
             token: token,
             foodCategoryUtil: foodCategoryUtil
         )
+        viewModel.setDialogQueue(dialogQueue: dialogQueue)
     }
     
     var body: some View {
@@ -61,7 +65,29 @@ struct RecipeListScreen: View {
                 }
             }
             .navigationBarHidden(true)
-            
+            .alert(isPresented: $dialogQueue.hasMessages, content: {
+                let first = dialogQueue.queue.peek()!
+                return Alert(
+                    title: Text(first.title),
+                    message: Text(first.description_ ?? "Something went wrong"),
+                    primaryButton: .default(
+                        Text(first.positiveAction?.positiveBtnTxt ?? "Ok"),
+                        action: {
+                            if(first.positiveAction != nil){
+                                first.positiveAction?.onPositiveAction()
+                            }
+                        }
+                    ),
+                    secondaryButton: .default(
+                        Text(first.negativeAction?.negativeBtnTxt ?? "Cancel"),
+                        action: {
+                            if(first.negativeAction != nil){
+                                first.negativeAction?.onNegativeAction()
+                            }
+                        }
+                    )
+                )
+            })
         }
     }
 }
