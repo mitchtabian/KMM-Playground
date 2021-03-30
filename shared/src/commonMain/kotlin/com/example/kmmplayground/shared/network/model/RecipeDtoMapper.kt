@@ -3,7 +3,6 @@ package com.example.kmmplayground.shared.network.model
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.DateUtil
 import com.example.kmmplayground.shared.domain.util.DomainMapper
-import kotlinx.datetime.*
 
 class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
 
@@ -32,8 +31,8 @@ class RecipeDtoMapper : DomainMapper<RecipeDto, Recipe> {
             publisher = domainModel.publisher,
             sourceUrl = domainModel.sourceUrl,
             ingredients = domainModel.ingredients,
-            longDateAdded = dateUtil.toEpochMilliseconds(domainModel.dateAdded).toLong(),
-            longDateUpdated = dateUtil.toEpochMilliseconds(domainModel.dateUpdated).toLong()
+            longDateAdded = dateUtil.toEpochSeconds(domainModel.dateAdded).toLong(),
+            longDateUpdated = dateUtil.toEpochSeconds(domainModel.dateUpdated).toLong()
         )
     }
 

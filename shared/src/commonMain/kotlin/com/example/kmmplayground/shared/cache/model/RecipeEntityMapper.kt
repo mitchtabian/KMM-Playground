@@ -31,8 +31,8 @@ class RecipeEntityMapper: DomainMapper<RecipeEntity, Recipe> {
             publisher = domainModel.publisher,
             sourceUrl = domainModel.sourceUrl,
             ingredients = convertIngredientListToString(domainModel.ingredients),
-            dateAdded = dateUtil.toEpochMilliseconds(domainModel.dateAdded),
-            dateUpdated = dateUtil.toEpochMilliseconds(domainModel.dateUpdated),
+            dateAdded = dateUtil.toEpochSeconds(domainModel.dateAdded),
+            dateUpdated = dateUtil.toEpochSeconds(domainModel.dateUpdated),
         )
     }
 

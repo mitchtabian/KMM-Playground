@@ -10,6 +10,7 @@ import com.example.kmmplayground.shared.domain.util.asCommonFlow
 import com.example.kmmplayground.shared.network.RecipeService
 import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
 import com.example.kmmplayground.shared.util.RECIPE_PAGINATION_PAGE_SIZE
+import com.example.kmmplayground.shared.util.TAG
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 
@@ -38,7 +39,6 @@ class SearchRecipes(
                 throw Exception("Forcing an error... Search FAILED!")
             }
 
-            // TODO("Add 'isNetworkAvailable' check")
             // Convert: NetworkRecipeEntity -> Recipe -> RecipeCacheEntity
             val recipes = getRecipesFromNetwork(
                 token = token,
