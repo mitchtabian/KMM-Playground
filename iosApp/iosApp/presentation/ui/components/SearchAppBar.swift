@@ -56,7 +56,14 @@ struct SearchAppBar: View {
 
 @available(iOS 14.0, *)
 struct SearchAppBar_Previews: PreviewProvider {
-    static var viewModel = RecipeListViewModel(recipeService: RecipeServiceImpl())
+    static let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self)
+    static let tokenProvider = DIContainer.shared.resolve(type: ApiTokenProvider.self)
+    static let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self)
+    static var viewModel = RecipeListViewModel(
+        searchRecipes: searchRecipes!,
+        token: tokenProvider!.provideToken(),
+        foodCategoryUtil: foodCategoryUtil!
+    )
     static var previews: some View {
         SearchAppBar(viewModel: viewModel)
     }

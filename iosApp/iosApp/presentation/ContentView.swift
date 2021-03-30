@@ -10,15 +10,14 @@ struct ContentView: View {
         let smallTitleFontAttrs = [ NSAttributedString.Key.font: UIFont(name: "avenir", size: 20)
         ]
         
-        
         UINavigationBar.appearance().titleTextAttributes = smallTitleFontAttrs
         UINavigationBar.appearance().largeTitleTextAttributes = largeTitleFontAttrs
         
         let container = DIContainer.shared
         
-        container.register(name: "auth_token", component: "Token 9c8b06d329136da358c2d00e76946b0111ce2c48")
+        container.register(type: ApiTokenProvider.self, component: ApiTokenProvider())
         container.register(type: FoodCategoryUtil.self, component: FoodCategoryUtil())
-        
+         
         let recipeService = RecipeServiceImpl()
         let dtoMapper = RecipeDtoMapper()
         let driverFactory = DriverFactory()
@@ -33,11 +32,18 @@ struct ContentView: View {
             dateUtil: dateUtil
         )
         container.register(type: SearchRecipes.self, component: searchRecipes)
-        
     }
     
     var body: some View {
-        RecipeListScreen()
+        containedView()
+    }
+    
+    func containedView() -> AnyView {
+        do{
+            return try AnyView(RecipeListScreen())
+        }catch{
+            return AnyView(Text("An error occurred."))
+        }
     }
 }
 

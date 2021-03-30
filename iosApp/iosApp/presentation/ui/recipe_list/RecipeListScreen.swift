@@ -14,13 +14,19 @@ struct RecipeListScreen: View {
     
     @ObservedObject var viewModel: RecipeListViewModel
     
-    init(){
-        let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self)
-        let token = DIContainer.shared.resolve<String>(name: "auth_token")
-        let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self)
+    init() throws {
+        guard let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self) else{
+            throw DIContainerError.UnableToResolve(className: "SearchRecipes use case cannot be resolved.")
+        }
+        guard let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self) else{
+            throw DIContainerError.UnableToResolve(className: "FoodCategoryUtil use case cannot be resolved.")
+        }
+        guard let tokenProvider = DIContainer.shared.resolve(type: ApiTokenProvider.self) else{
+            throw DIContainerError.UnableToResolve(className: "ApiTokenProvider use case cannot be resolved.")
+        }
         viewModel = RecipeListViewModel(
             searchRecipes: searchRecipes,
-            token: token,
+            token: tokenProvider.provideToken(),
             foodCategoryUtil: foodCategoryUtil
         )
     }
@@ -67,7 +73,14 @@ struct RecipeListScreen: View {
 
 @available(iOS 14.0, *)
 struct RecipeListScreen_Previews: PreviewProvider {
+    static func containedView() -> AnyView {
+        do{
+            return try AnyView(RecipeListScreen())
+        }catch{
+            return AnyView(Text("An error occurred."))
+        }
+    }
     static var previews: some View {
-        RecipeListScreen()
+        containedView()
     }
 }

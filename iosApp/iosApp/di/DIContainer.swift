@@ -16,12 +16,9 @@ import Foundation
 protocol DiContainerProtocol{
     func register<Component>(type: Component.Type, component: Any)
     func resolve<Component>(type: Component.Type) -> Component?
-    
-    func register(name: String, component: Any)
-    func resolve<Component>(name: String) -> Component?
 }
 
-final class DIContainer: DiContainerProtocol{
+final class DIContainer: DiContainerProtocol {
     
     static let shared = DIContainer()
     
@@ -33,17 +30,14 @@ final class DIContainer: DiContainerProtocol{
         components["\(type)"] = component
     }
     
-    func register(name: String, component: Any){
-        components[name] = component
-    }
-    
     func resolve<Component>(type: Component.Type) -> Component? {
         return components["\(type)"] as? Component
     }
     
-    func resolve<Component>(name: String) -> Component? {
-        return components[name] as? Component
-    }
+}
+
+enum DIContainerError: Error {
+    case UnableToResolve(className: String)
 }
 
 

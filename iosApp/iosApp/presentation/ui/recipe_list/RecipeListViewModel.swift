@@ -13,12 +13,16 @@ class RecipeListViewModel: ObservableObject {
     // Dependencies
     let searchRecipes: SearchRecipes
     let token: String
+    let foodCategoryUtil: FoodCategoryUtil
     
     // Variables
     var categories = [FoodCategory]()
     
     // The current query
     @Published var query = ""
+    
+    // The Recipes
+    @Published var recipes: [Recipe] = []
     
     // Selected category chip in SearchBar
     @Published var selectedCategory: FoodCategory? = nil
@@ -42,7 +46,7 @@ class RecipeListViewModel: ObservableObject {
     ){
         self.searchRecipes = searchRecipes
         self.token = token
-        self.foodCategoryUtil = FoodCategoryUtil
+        self.foodCategoryUtil = foodCategoryUtil
         categories = foodCategoryUtil.getAllFoodCategories()
         onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
     }
