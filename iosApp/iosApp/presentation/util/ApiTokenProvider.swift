@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol ApiTokenProtocol {
     func provideToken() -> String
 }

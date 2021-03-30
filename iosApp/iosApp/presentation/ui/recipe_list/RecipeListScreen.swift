@@ -14,19 +14,14 @@ struct RecipeListScreen: View {
     
     @ObservedObject var viewModel: RecipeListViewModel
     
-    init() throws {
-        guard let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self) else{
-            throw DIContainerError.UnableToResolve(className: "SearchRecipes use case cannot be resolved.")
-        }
-        guard let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self) else{
-            throw DIContainerError.UnableToResolve(className: "FoodCategoryUtil use case cannot be resolved.")
-        }
-        guard let tokenProvider = DIContainer.shared.resolve(type: ApiTokenProvider.self) else{
-            throw DIContainerError.UnableToResolve(className: "ApiTokenProvider use case cannot be resolved.")
-        }
+    init(
+        searchRecipes: SearchRecipes,
+        token: String,
+        foodCategoryUtil: FoodCategoryUtil
+    ) {
         viewModel = RecipeListViewModel(
             searchRecipes: searchRecipes,
-            token: tokenProvider.provideToken(),
+            token: token,
             foodCategoryUtil: foodCategoryUtil
         )
     }
@@ -35,7 +30,18 @@ struct RecipeListScreen: View {
         NavigationView{
             ZStack{
                 VStack{
-                    SearchAppBar(viewModel: viewModel)
+                    SearchAppBar(
+                        categories: viewModel.categories,
+                        setQuery: { query in
+                            viewModel.setQuery(query: query)
+                        },
+                        newSearchEvent: {
+                            viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
+                        },
+                        onSelectedCategoryChanged: { category in
+                            viewModel.onSelectedCategoryChanged(category: category)
+                        }
+                    )
                     List{
                         ForEach(viewModel.recipes, id: \.self.id){ recipe in
                             ZStack{
@@ -73,14 +79,24 @@ struct RecipeListScreen: View {
 
 @available(iOS 14.0, *)
 struct RecipeListScreen_Previews: PreviewProvider {
-    static func containedView() -> AnyView {
-        do{
-            return try AnyView(RecipeListScreen())
-        }catch{
-            return AnyView(Text("An error occurred."))
-        }
-    }
+    static let recipeService = RecipeServiceImpl()
+    static let dtoMapper = RecipeDtoMapper()
+    static let driverFactory = DriverFactory()
+    static let recipeEntityMapper = RecipeEntityMapper()
+    static let dateUtil = DateUtil()
+    static let recipeDatabase = RecipeDatabaseFactory(driverFactory: driverFactory).createDatabase()
+    static let searchRecipes = SearchRecipes(
+        recipeService: recipeService,
+        dtoMapper: dtoMapper,
+        recipeDatabase: recipeDatabase,
+        recipeEntityMapper: recipeEntityMapper,
+        dateUtil: dateUtil
+    )
     static var previews: some View {
-        containedView()
+        RecipeListScreen(
+            searchRecipes: searchRecipes,
+            token: ApiTokenProvider().provideToken(),
+            foodCategoryUtil: FoodCategoryUtil()
+        )
     }
 }

@@ -12,10 +12,28 @@ import shared
 @available(iOS 14.0, *)
 struct SearchAppBar: View {
     
-    @ObservedObject var viewModel: RecipeListViewModel
+//    @ObservedObject var viewModel: RecipeListViewModel
     
-    init(viewModel: RecipeListViewModel){
-        self.viewModel = viewModel
+//    init(viewModel: RecipeListViewModel){
+//        self.viewModel = viewModel
+//    }
+    
+    @State var query: String = ""
+    let categories: [FoodCategory]
+    let setQuery: (String) -> Void
+    let newSearchEvent: () -> Void
+    let onSelectedCategoryChanged: (String) -> Void
+    
+    init(
+        categories: [FoodCategory],
+        setQuery: @escaping (String) -> Void,
+        newSearchEvent: @escaping () -> Void,
+        onSelectedCategoryChanged: @escaping (String) -> Void
+    ) {
+        self.categories = categories
+        self.setQuery = setQuery
+        self.newSearchEvent = newSearchEvent
+        self.onSelectedCategoryChanged = onSelectedCategoryChanged
     }
     
     var body: some View {
@@ -24,24 +42,25 @@ struct SearchAppBar: View {
                 Image(systemName: "magnifyingglass")
                 TextField(
                     "Search...",
-                    text: $viewModel.query,
+                    text: $query,
                     onCommit:{
-                        viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
+                        newSearchEvent()
                     }
                 )
-                .onChange(of: viewModel.query, perform: { value in
-                    viewModel.setQuery(query: value)
+                .onChange(of: query, perform: { value in
+                    setQuery(value)
                 })
                 
             }
             .padding(.bottom, 8)
             ScrollView(.horizontal){
                 HStack(spacing: 10){
-                    ForEach(viewModel.categories, id: \.self){ category in
+                    ForEach(categories, id: \.self){ category in
                         FoodCategoryChip(category: category.value)
                         .onTapGesture {
-                            viewModel.onSelectedCategoryChanged(category: category.value)
-                            viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
+                            query = category.value
+                            onSelectedCategoryChanged(category.value)
+                            newSearchEvent()
                         }
                     }
                 }
@@ -56,15 +75,17 @@ struct SearchAppBar: View {
 
 @available(iOS 14.0, *)
 struct SearchAppBar_Previews: PreviewProvider {
-    static let searchRecipes = DIContainer.shared.resolve(type: SearchRecipes.self)
-    static let tokenProvider = DIContainer.shared.resolve(type: ApiTokenProvider.self)
-    static let foodCategoryUtil = DIContainer.shared.resolve(type: FoodCategoryUtil.self)
-    static var viewModel = RecipeListViewModel(
-        searchRecipes: searchRecipes!,
-        token: tokenProvider!.provideToken(),
-        foodCategoryUtil: foodCategoryUtil!
-    )
     static var previews: some View {
-        SearchAppBar(viewModel: viewModel)
+        SearchAppBar(
+            categories: [],
+            setQuery: { query  in
+                
+            },
+            newSearchEvent: {
+                
+            },
+            onSelectedCategoryChanged: {categroy in
+                
+            })
     }
 }
