@@ -1,4 +1,4 @@
-package com.example.kmmplayground.shared.cache
+package com.example.kmmplayground.shared.datasource.cache
 
 import android.content.Context
 import com.example.kmmplayground.cache.RecipeDatabase

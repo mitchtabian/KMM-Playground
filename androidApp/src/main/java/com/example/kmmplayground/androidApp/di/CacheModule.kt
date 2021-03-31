@@ -2,9 +2,9 @@ package com.example.kmmplayground.androidApp.di
 
 import com.example.kmmplayground.androidApp.presentation.BaseApplication
 import com.example.kmmplayground.cache.RecipeDatabase
-import com.example.kmmplayground.shared.cache.DriverFactory
-import com.example.kmmplayground.shared.cache.RecipeDatabaseFactory
-import com.example.kmmplayground.shared.cache.model.RecipeEntityMapper
+import com.example.kmmplayground.shared.datasource.cache.DriverFactory
+import com.example.kmmplayground.shared.datasource.cache.RecipeDatabaseFactory
+import com.example.kmmplayground.shared.datasource.cache.model.RecipeEntityMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

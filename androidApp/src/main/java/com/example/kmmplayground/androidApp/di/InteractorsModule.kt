@@ -1,12 +1,12 @@
 package com.example.kmmplayground.androidApp.di
 
 import com.example.kmmplayground.cache.RecipeDatabase
-import com.example.kmmplayground.shared.cache.model.RecipeEntityMapper
+import com.example.kmmplayground.shared.datasource.cache.model.RecipeEntityMapper
 import com.example.kmmplayground.shared.domain.util.DateUtil
 import com.example.kmmplayground.shared.interactors.recipe.GetRecipe
 import com.example.kmmplayground.shared.interactors.recipe_list.SearchRecipes
-import com.example.kmmplayground.shared.network.RecipeService
-import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
+import com.example.kmmplayground.shared.datasource.network.RecipeService
+import com.example.kmmplayground.shared.datasource.network.model.RecipeDtoMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

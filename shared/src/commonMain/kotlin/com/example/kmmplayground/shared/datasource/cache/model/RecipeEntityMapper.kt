@@ -1,4 +1,4 @@
-package com.example.kmmplayground.shared.cache.model
+package com.example.kmmplayground.shared.datasource.cache.model
 
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.DateUtil

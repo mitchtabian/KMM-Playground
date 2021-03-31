@@ -1,7 +1,7 @@
-package com.example.kmmplayground.shared.network
+package com.example.kmmplayground.shared.datasource.network
 
-import com.example.kmmplayground.shared.network.model.RecipeDto
-import com.example.kmmplayground.shared.network.model.RecipeSearchResponse
+import com.example.kmmplayground.shared.datasource.network.model.RecipeDto
+import com.example.kmmplayground.shared.datasource.network.model.RecipeSearchResponse
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
