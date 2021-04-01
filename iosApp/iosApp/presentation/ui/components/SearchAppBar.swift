@@ -38,7 +38,10 @@ struct SearchAppBar: View {
             ScrollView(.horizontal){
                 HStack(spacing: 10){
                     ForEach(viewModel.categories, id: \.self){ category in
-                        FoodCategoryChip(category: category.value)
+                        FoodCategoryChip(
+                            category: category.value,
+                            isSelected: viewModel.selectedCategory == category
+                        )
                         .onTapGesture {
                             viewModel.onSelectedCategoryChanged(category: category.value)
                             viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
