@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(Versions.compileSdkVersion)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdkVersion(Versions.minSdkVersion)
+        targetSdkVersion(Versions.targetSdkVersion)
     }
     configurations {
         create("androidTestApi")
@@ -42,16 +42,14 @@ kotlin {
     }
 
     sourceSets {
-        val ktor_version = "1.5.2"
-        val sqldelight = "1.4.3"
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
-                implementation("io.ktor:ktor-client-core:$ktor_version")
-                implementation("io.ktor:ktor-client-json:$ktor_version")
-                implementation("io.ktor:ktor-client-serialization:$ktor_version")
-                implementation("com.squareup.sqldelight:runtime:$sqldelight")
+                implementation(Kotlinx.datetime)
+                implementation(Kotlinx.serializationJson)
+                implementation(Ktor.core)
+                implementation(Ktor.json)
+                implementation(Ktor.serialization)
+                implementation(SQLDelight.runtime)
             }
         }
         val commonTest by getting {
@@ -62,24 +60,24 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
-                implementation("io.ktor:ktor-client-android:$ktor_version")
-                implementation("io.ktor:ktor-client-serialization-jvm:$ktor_version")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2")
-                implementation("com.squareup.sqldelight:android-driver:$sqldelight")
+                implementation(Google.material) // dont think I need this here
+                implementation(Ktor.android)
+                implementation(Ktor.serializationJvm)
+                implementation(Kotlinx.coroutinesAndroid)
+                implementation(SQLDelight.androidDriver)
 
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13")
+                implementation(Junit.core)
             }
         }
         val iosMain by getting {
             dependencies{
-                implementation("io.ktor:ktor-client-ios:$ktor_version")
-                implementation("com.squareup.sqldelight:native-driver:$sqldelight")
+                implementation(Ktor.ios)
+                implementation(SQLDelight.nativeDriver)
             }
         }
         val iosTest by getting

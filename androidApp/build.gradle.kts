@@ -8,51 +8,36 @@ plugins {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.appcompat:appcompat:1.3.0-rc01")
+    implementation(Google.material)
+    implementation(AndroidX.appCompat)
 
-    val composeVersion = "1.0.0-beta03"
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.material:material:$composeVersion")
-    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    implementation("androidx.compose.foundation:foundation:$composeVersion")
-    implementation("androidx.compose.compiler:compiler:$composeVersion")
-
-    val constraintLayoutCompose = "1.0.0-alpha03"
-    implementation("androidx.constraintlayout:constraintlayout-compose:$constraintLayoutCompose")
-
-    val composeActivities = "1.3.0-alpha03"
-    implementation("androidx.activity:activity-compose:$composeActivities")
-
-    val navigationCompose = "1.0.0-alpha08"
-    implementation("androidx.navigation:navigation-compose:$navigationCompose")
+    implementation(Compose.ui)
+    implementation(Compose.material)
+    implementation(Compose.uiTooling)
+    implementation(Compose.foundation)
+    implementation(Compose.compiler)
+    implementation(Compose.constraintLayout)
+    implementation(Compose.activity)
+    implementation(Compose.navigation)
 
     // Needed for viewmodel to do constructor injection
-    val hiltNavigation = "1.0.0-alpha03"
-    implementation("androidx.hilt:hilt-navigation:$hiltNavigation")
+    implementation(Hilt.navigation)
+    kapt(Hilt.compiler)
+    implementation(Hilt.android)
 
-    val hilt = "2.31.2-alpha"
-    kapt("com.google.dagger:hilt-compiler:$hilt")
-    implementation("com.google.dagger:hilt-android:$hilt")
+    implementation(Accompanist.coil)
 
-//    val hiltLifecycleViewModel = "1.0.0-alpha03"
-//    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifecycleViewModel")
-
-    val accompanistCoil = "0.7.0"
-    implementation("com.google.accompanist:accompanist-coil:$accompanistCoil")
-
-    val kotlinDatetime = "0.1.1"
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinDatetime")
+    implementation(Kotlinx.datetime)
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(Versions.compileSdkVersion)
     defaultConfig {
         applicationId = "com.example.kmmplayground.androidApp"
-        minSdkVersion(24)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(Versions.minSdkVersion)
+        targetSdkVersion(Versions.targetSdkVersion)
+        versionCode = Versions.versionCode
+        versionName = Versions.versionName
     }
     buildTypes {
         getByName("release") {
@@ -72,7 +57,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.0-beta03"
+        kotlinCompilerExtensionVersion = Versions.composeVersion
     }
 }
 
