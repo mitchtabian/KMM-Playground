@@ -38,7 +38,10 @@ struct SearchAppBar: View {
             ScrollView(.horizontal){
                 HStack(spacing: 10){
                     ForEach(viewModel.categories, id: \.self){ category in
-                        FoodCategoryChip(category: category.value)
+                        FoodCategoryChip(
+                            category: category.value,
+                            isSelected: viewModel.selectedCategory == category
+                        )
                         .onTapGesture {
                             viewModel.onSelectedCategoryChanged(category: category.value)
                             viewModel.onTriggerEvent(stateEvent: RecipeListEvent.NewSearchEvent())
@@ -71,6 +74,7 @@ struct SearchAppBar_Previews: PreviewProvider {
     )
     static let foodCategoryUtil = FoodCategoryUtil()
     static let token = ApiTokenProvider().provideToken()
+    static let dialogQueue = DialogQueue()
     static let viewModel = RecipeListViewModel(
         searchRecipes: searchRecipes,
         token: token,

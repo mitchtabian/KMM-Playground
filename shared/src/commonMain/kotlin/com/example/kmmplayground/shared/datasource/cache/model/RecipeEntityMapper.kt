@@ -1,4 +1,4 @@
-package com.example.kmmplayground.shared.cache.model
+package com.example.kmmplayground.shared.datasource.cache.model
 
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.DateUtil
@@ -31,8 +31,8 @@ class RecipeEntityMapper: DomainMapper<RecipeEntity, Recipe> {
             publisher = domainModel.publisher,
             sourceUrl = domainModel.sourceUrl,
             ingredients = convertIngredientListToString(domainModel.ingredients),
-            dateAdded = dateUtil.toEpochMilliseconds(domainModel.dateAdded),
-            dateUpdated = dateUtil.toEpochMilliseconds(domainModel.dateUpdated),
+            dateAdded = dateUtil.toEpochSeconds(domainModel.dateAdded),
+            dateUpdated = dateUtil.toEpochSeconds(domainModel.dateUpdated),
         )
     }
 

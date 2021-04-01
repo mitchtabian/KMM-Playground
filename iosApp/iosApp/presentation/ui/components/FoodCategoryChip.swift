@@ -8,14 +8,22 @@
 
 import SwiftUI
 
+
 struct FoodCategoryChip: View {
-    let category: String
+    
+    private let category: String
+    private let isSelected: Bool
+    
+    init(category: String, isSelected: Bool = false) {
+        self.category = category
+        self.isSelected = isSelected
+    }
     var body: some View {
         HStack{
             DefaultText(category, size: 16)
                 .padding(8)
-                .background(Color.blue)
-                .foregroundColor(.white)
+                .background(isSelected ? Color.init(hex: 0xCCCCCC) : Color.blue)
+                .foregroundColor(Color.white)
         }
         .cornerRadius(10)
     }

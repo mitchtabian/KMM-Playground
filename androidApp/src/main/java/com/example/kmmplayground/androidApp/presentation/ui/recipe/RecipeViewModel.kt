@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kmmplayground.shared.domain.data.RecipeData
+import com.example.kmmplayground.androidApp.presentation.util.DialogQueue
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.interactors.recipe.GetRecipe
 import com.example.kmmplayground.shared.presentation.ui.recipe.RecipeEvent
@@ -17,7 +17,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 const val STATE_KEY_RECIPE = "recipe.state.recipe.key"
 
@@ -35,6 +34,8 @@ constructor(
     val loading = mutableStateOf(false)
 
     val onLoad: MutableState<Boolean> = mutableStateOf(false)
+
+    val dialogQueue = DialogQueue()
 
     init {
         // restore if process dies
@@ -70,7 +71,7 @@ constructor(
             }
 
             dataState.error?.let { error ->
-                Log.e(TAG, "getRecipe: ${error}")
+                dialogQueue.appendErrorMessage("An Error Occurred", error)
             }
         }.launchIn(viewModelScope)
     }

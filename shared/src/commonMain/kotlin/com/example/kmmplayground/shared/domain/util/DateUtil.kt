@@ -8,11 +8,11 @@ class DateUtil {
         return currentMoment.toLocalDateTime(TimeZone.UTC).date
     }
 
-    fun toLocalDate(date: Double): LocalDate{
-        return Instant.fromEpochMilliseconds(date.toLong()).toLocalDateTime(TimeZone.UTC).date
+    fun toLocalDate(date: Double): LocalDate {
+        return Instant.fromEpochSeconds(date.toLong()).toLocalDateTime(TimeZone.UTC).date
     }
 
-    fun toEpochMilliseconds(date: LocalDate): Double{
-        return date.atStartOfDayIn(TimeZone.UTC).toEpochMilliseconds().toDouble()
+    fun toEpochSeconds(date: LocalDate): Double{
+        return date.atStartOfDayIn(TimeZone.UTC).epochSeconds.toDouble()
     }
 }

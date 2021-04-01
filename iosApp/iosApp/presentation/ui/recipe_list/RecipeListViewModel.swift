@@ -6,6 +6,7 @@
 //  Copyright © 2021 orgName. All rights reserved.
 //
 
+import SwiftUI
 import shared
 
 class RecipeListViewModel: ObservableObject {
@@ -39,6 +40,9 @@ class RecipeListViewModel: ObservableObject {
     // Is a query currently in progress? This will prevent duplicate queries.
     private var isQueryInProgress = false
     
+    // hold reference to DialogQueue from UI
+    private var dialogQueue: DialogQueue? = nil
+    
     init(
         searchRecipes: SearchRecipes,
         token: String,
@@ -59,6 +63,10 @@ class RecipeListViewModel: ObservableObject {
         default:
             doNothing()
         }
+    }
+    
+    func setDialogQueue(dialogQueue: DialogQueue){
+        self.dialogQueue = dialogQueue
     }
     
     func doNothing(){}
@@ -94,9 +102,10 @@ class RecipeListViewModel: ObservableObject {
         self.updateBottomRecipe(recipe: self.recipes[self.recipes.count - 1])
     }
     
-    // TODO("Figure out how I'm going to handle the errors")
     private func handleError(_ error: String){
-        // print(error)
+        if dialogQueue != nil{
+            dialogQueue!.appendMessage(title: "An Error Occurred", description: error)
+        }
     }
     
     private func newSearch() {
@@ -113,14 +122,14 @@ class RecipeListViewModel: ObservableObject {
                         self.appendRecipes(recipes: _data as! [Recipe])
                     }
                     if(_error != nil){
-                        self.handleError("ERROR: newSearch: \(_error)")
+                        self.handleError("\(_error!)")
                     }
                 }else{
                     self.handleError("ERROR: newSearch: DataState is nil")
                 }
             })
         }catch{
-            self.handleError("ERROR: newSearch: \(error)")
+            self.handleError("\(error)")
         }
     }
     
@@ -156,14 +165,14 @@ class RecipeListViewModel: ObservableObject {
                             self.appendRecipes(recipes: _data as! [Recipe])
                         }
                         if(_error != nil){
-                            self.handleError("ERROR: newSearch: \(_error)")
+                            self.handleError("ERROR: newSearch: \(_error!)")
                         }
                     }else{
                         self.handleError("ERROR: newSearch: DataState is nil")
                     }
                 })
             }catch{
-                self.handleError("ERROR: newSearch: \(error)")
+                self.handleError("\(error)")
             }
         }
     }

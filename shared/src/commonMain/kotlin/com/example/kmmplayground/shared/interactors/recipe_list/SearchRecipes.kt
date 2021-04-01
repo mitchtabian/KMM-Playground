@@ -1,14 +1,14 @@
 package com.example.kmmplayground.shared.interactors.recipe_list
 
 import com.example.kmmplayground.cache.RecipeDatabase
-import com.example.kmmplayground.shared.cache.model.RecipeEntityMapper
+import com.example.kmmplayground.shared.datasource.cache.model.RecipeEntityMapper
 import com.example.kmmplayground.shared.domain.data.DataState
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.CommonFlow
 import com.example.kmmplayground.shared.domain.util.DateUtil
 import com.example.kmmplayground.shared.domain.util.asCommonFlow
-import com.example.kmmplayground.shared.network.RecipeService
-import com.example.kmmplayground.shared.network.model.RecipeDtoMapper
+import com.example.kmmplayground.shared.datasource.network.RecipeService
+import com.example.kmmplayground.shared.datasource.network.model.RecipeDtoMapper
 import com.example.kmmplayground.shared.util.RECIPE_PAGINATION_PAGE_SIZE
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
@@ -38,7 +38,6 @@ class SearchRecipes(
                 throw Exception("Forcing an error... Search FAILED!")
             }
 
-            // TODO("Add 'isNetworkAvailable' check")
             // Convert: NetworkRecipeEntity -> Recipe -> RecipeCacheEntity
             val recipes = getRecipesFromNetwork(
                 token = token,

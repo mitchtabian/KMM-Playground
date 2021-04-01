@@ -1,4 +1,4 @@
-package com.example.kmmplayground.shared.cache
+package com.example.kmmplayground.shared.datasource.cache
 
 import com.example.kmmplayground.cache.RecipeDatabase
 import com.squareup.sqldelight.db.SqlDriver

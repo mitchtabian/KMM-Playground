@@ -1,4 +1,4 @@
-package com.example.kmmplayground.shared.cache.model
+package com.example.kmmplayground.shared.datasource.cache.model
 
 data class RecipeEntity(
     val id: Long,

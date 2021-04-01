@@ -1,7 +1,7 @@
 package com.example.kmmplayground.shared.interactors.recipe
 
 import com.example.kmmplayground.cache.RecipeDatabase
-import com.example.kmmplayground.shared.cache.model.RecipeEntityMapper
+import com.example.kmmplayground.shared.datasource.cache.model.RecipeEntityMapper
 import com.example.kmmplayground.shared.domain.data.DataState
 import com.example.kmmplayground.shared.domain.model.Recipe
 import com.example.kmmplayground.shared.domain.util.DateUtil

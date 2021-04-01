@@ -10,6 +10,9 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.kmmplayground.androidApp.presentation.components.CircularIndeterminateProgressBar
+import com.example.kmmplayground.androidApp.presentation.components.GenericDialog
+import com.example.kmmplayground.shared.domain.model.GenericDialogInfo
+import java.util.*
 
 private val LightThemeColors = lightColors(
     primary = Blue600,
@@ -46,6 +49,7 @@ fun AppTheme(
     darkTheme: Boolean,
     displayProgressBar: Boolean,
     scaffoldState: ScaffoldState,
+    dialogQueue: Queue<GenericDialogInfo>? = null,
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
@@ -62,6 +66,24 @@ fun AppTheme(
                 content()
             }
             CircularIndeterminateProgressBar(isDisplayed = displayProgressBar, 0.3f)
+            ProcessDialogQueue(
+                dialogQueue = dialogQueue,
+            )
         }
+    }
+}
+
+@Composable
+fun ProcessDialogQueue(
+    dialogQueue: Queue<GenericDialogInfo>?,
+) {
+    dialogQueue?.peek()?.let { dialogInfo ->
+        GenericDialog(
+            onDismiss = dialogInfo.onDismiss,
+            title = dialogInfo.title,
+            description = dialogInfo.description,
+            positiveAction = dialogInfo.positiveAction,
+            negativeAction = dialogInfo.negativeAction
+        )
     }
 }
