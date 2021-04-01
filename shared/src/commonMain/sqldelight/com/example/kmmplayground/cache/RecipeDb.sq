@@ -42,3 +42,19 @@ ORDER BY date_updated DESC LIMIT :pageSize OFFSET ((:page - 1) * :pageSize);
 getRecipeById:
 SELECT * FROM recipe_Entity
 WHERE id = :id;
+
+restoreRecipes:
+SELECT * FROM recipe_Entity
+WHERE title LIKE ('%' || :query || '%')
+OR ingredients LIKE ('%' || :query || '%' )
+ORDER BY date_updated DESC LIMIT (:page * :pageSize);
+
+restoreAllRecipes:
+SELECT * FROM recipe_Entity
+ORDER BY date_updated DESC LIMIT (:page * :pageSize);
+
+
+
+
+
+

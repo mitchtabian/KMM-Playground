@@ -7,6 +7,7 @@ import com.example.kmmplayground.shared.interactors.recipe.GetRecipe
 import com.example.kmmplayground.shared.interactors.recipe_list.SearchRecipes
 import com.example.kmmplayground.shared.datasource.network.RecipeService
 import com.example.kmmplayground.shared.datasource.network.model.RecipeDtoMapper
+import com.example.kmmplayground.shared.interactors.recipe_list.RestoreRecipes
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +31,20 @@ object InteractorsModule {
             recipeService = recipeService,
             dtoMapper = dtoMapper,
             recipeEntityMapper = entityMapper,
+            recipeDatabase = recipeDatabase,
+            dateUtil = dateUtil
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun providerestoreRecipes(
+        entityMapper: RecipeEntityMapper,
+        recipeDatabase: RecipeDatabase,
+        dateUtil: DateUtil
+    ): RestoreRecipes {
+        return RestoreRecipes(
+            entityMapper = entityMapper,
             recipeDatabase = recipeDatabase,
             dateUtil = dateUtil
         )

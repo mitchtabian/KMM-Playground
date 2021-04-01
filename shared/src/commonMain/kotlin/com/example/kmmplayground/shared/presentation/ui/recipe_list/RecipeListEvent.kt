@@ -6,6 +6,6 @@ sealed class RecipeListEvent {
 
     object NextPageEvent : RecipeListEvent()
 
-    // restore after process death
+    // restore after process death (Android Only)
     object RestoreStateEvent: RecipeListEvent()
 }
