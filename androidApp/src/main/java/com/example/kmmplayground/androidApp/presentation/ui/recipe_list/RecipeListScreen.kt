@@ -23,8 +23,6 @@ fun RecipeListScreen(
   onNavigateToRecipeDetailScreen: (String) -> Unit,
   viewModel: RecipeListViewModel,
 ) {
-  Log.d(TAG, "RecipeListScreen: ${viewModel}")
-
   val recipes = viewModel.recipes.value
 
   val query = viewModel.query.value

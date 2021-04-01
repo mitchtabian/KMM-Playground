@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.kmmplayground.androidApp.presentation.util.DialogQueue
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategory
 import com.example.kmmplayground.shared.domain.model.Recipe
+import com.example.kmmplayground.shared.interactors.recipe_list.RestoreRecipes
 import com.example.kmmplayground.shared.interactors.recipe_list.SearchRecipes
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.FoodCategoryUtil
 import com.example.kmmplayground.shared.presentation.ui.recipe_list.RecipeListEvent
@@ -33,6 +34,7 @@ class RecipeListViewModel
 constructor(
     private val savedStateHandle: SavedStateHandle,
     private val searchRecipes: SearchRecipes,
+    private val restoreRecipes: RestoreRecipes,
     private @Named("auth_token") val token: String,
 ) : ViewModel() {
 
@@ -103,7 +105,17 @@ constructor(
     }
 
     private fun restoreState() {
-        // TODO("execute use case")
+        restoreRecipes.execute(page = page.value, query = query.value).onEach { dataState ->
+            loading.value = dataState.loading
+
+            dataState.data?.let { list ->
+                recipes.value = list
+            }
+
+            dataState.error?.let { error ->
+                dialogQueue.appendErrorMessage("An Error Occurred", error)
+            }
+        }.launchIn(viewModelScope)
     }
 
     private fun newSearch() {
